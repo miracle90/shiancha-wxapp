@@ -1,0 +1,55 @@
+<!--index.wxml-->
+<view class="container">
+  <image class="header-bg" src="../../images/home/bg.png" mode="scaleToFill"></image>
+  <image class="logo" src="../../images/home/logo.png"></image>
+  <image class="title-img" src="../../images/home/title.png"></image>
+  <view class="userinfo">
+    <image class="user-bg" src="../../images/home/user_bg.png"></image>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text>{{userInfo.nickName}}</text>
+    <image style='margin: 0 18rpx 0 65rpx; width: 23rpx; height: 26rpx;' src="../../images/home/gold.png"></image>
+    <text>14</text>
+    <text style='margin: 0 32rpx; color: #154e9d'>|</text>
+    <image style='width: 29rpx; height: 29rpx;' src="../../images/home/power.png"></image>
+    <text style='margin: 0 32rpx 0 18rpx;'>8/10</text>
+    <image style='width: 25rpx; height: 25rpx;' src="../../images/home/add.png"></image>
+  </view>
+  <view class="regular-wrapper">
+    <image class="regular-bg" src="../../images/home/regular_bg.png"></image>
+    <image style='margin-bottom: 33rpx; width: 157rpx; height: 52rpx;' src="../../images/home/regular.png"></image>
+    <image style='width: 273rpx; height: 103rpx;' src="../../images/home/start.png"></image>
+  </view>
+  <view class="btn-wrapper">
+    <view style="height: 155rpx; width: 184rpx;">
+      <image class='btn-bg' src="../../images/home/hero_bg.png"></image>
+      <text>英雄榜</text>
+      <image src="../../images/home/vs.png" style="right: 18rpx; bottom: 20rpx; height: 83rpx; width: 97rpx;"></image>
+    </view>
+    <view style="padding-top: 33rpx; height: 193rpx; width: 304rpx;">
+      <image class='btn-bg' src="../../images/home/feature_bg.png"></image>
+      <text style='font-size: 21px;'>专场赛</text>
+      <text style='float: right; font-size: 12px; font-family: SourceHanSansCN-Regular;'>限时开放</text>
+      <text style='display: block; margin-top: 24rpx; font-size: 10px; font-family: SourceHanSansCN-Regular;'>6月25日-6月26日</text>
+      <image src="../../images/home/cup.png" style="right: 21rpx; bottom: 25rpx; height: 82rpx; width: 93rpx;"></image>
+    </view>
+    <view style="height: 155rpx; width: 184rpx;">
+      <image class='btn-bg' src="../../images/home/draw_bg.png"></image>
+      <text>抽奖</text>
+      <image src="../../images/home/gift.png" style="right: 11rpx; bottom: 18rpx; height: 80rpx; width: 112rpx;"></image>
+    </view>
+  </view>
+  <view class='bottom-font'>
+    <text style='margin-right: 60rpx;'>活动规则</text>
+    <text>关于我们</text>
+  </view>
+  <!-- <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+</view>

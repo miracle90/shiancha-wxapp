@@ -1,0 +1,113 @@
+/**index.wxss**/
+.header-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.logo {
+  position: absolute;
+  top: 6rpx;
+  left: 47rpx;
+  width: 260rpx;
+  height: 73rpx;
+}
+.title-img {
+  margin-top: 75rpx;
+  width: 560rpx;
+  height: 270rpx;
+}
+
+.userinfo {
+  position: relative;
+  margin-top: 55rpx;
+  display: flex;
+  align-items: center;
+  width: 650rpx;
+  height: 131rpx;
+  color: #fff;
+  font-size: 15px;
+  font-family: Adobe Heiti Std R;
+  font-weight: bold;
+}
+
+.user-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.userinfo-avatar {
+  margin: 0 23rpx 0 54rpx;
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+}
+
+.regular-wrapper {
+  margin-top: 57rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 568rpx;
+  height: 271rpx;
+}
+
+.regular-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.btn-wrapper {
+  margin-top: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 15px;
+  color: #fff;
+  font-family: SourceHanSansCN-Medium;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.btn-wrapper view {
+  position: relative;
+  padding: 24rpx 18rpx;
+  box-sizing: border-box;
+}
+
+.btn-wrapper image {
+  position: absolute;
+}
+
+.btn-bg {
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/* .btn-wrapper image {
+  margin-top: 0;
+} */
+
+.bottom-font {
+  position: absolute;
+  bottom: 28rpx;
+  color: #fff;
+  font-size: 14px;
+  font-family: SourceHanSansCN-Regular;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
