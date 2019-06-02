@@ -5,6 +5,10 @@ const app = getApp()
 Page({
   data: {
     motto: '食安查小程序',
+    showAbout: false,
+    showRules: false,
+    showContest: false,
+    showTreasure: false,
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -43,8 +47,47 @@ Page({
       })
     }
   },
+  goRank () {
+    wx.navigateTo({
+      url: '../ranking/ranking'
+    })
+  },
+  goRegular () {
+    wx.navigateTo({
+      url: '../regular/regular'
+    })
+  },
+  goFeature () {
+    wx.navigateTo({
+      url: '../feature/feature'
+    })
+  },
+  goAward () {
+    wx.navigateTo({
+      url: '../award/award'
+    })
+  },
+  showAbout () {
+    this.setData({
+      showAbout: true
+    })
+  },
+  hiddenAbout () {
+    this.setData({
+      showAbout: false
+    })
+  },
+  showRules () {
+    this.setData({
+      showRules: true
+    })
+  },
+  hiddenRules () {
+    this.setData({
+      showRules: false
+    })
+  },
   getUserInfo: function(e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,

@@ -1,0 +1,108 @@
+/* pages/ranking/ranking.wxss */
+.header-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.cup {
+  margin-top: 50rpx;
+  width: 520rpx;
+  height: 158rpx;
+  z-index: -1;
+}
+
+.tab {
+  display: flex;
+  margin-top: -23rpx;
+  width: 548rpx;
+  height: 62rpx;
+}
+
+.tab-item {
+  flex: 1;
+  position: relative;
+  text-align: center;
+  line-height: 62rpx;
+  font-size: 17px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #fff;
+}
+
+.active {
+  color: rgba(176,52,234,1);
+  background: #fff;
+}
+
+.tab-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.list {
+  margin-top: 33rpx;
+  width: 666rpx;
+  height: 818rpx;
+  background: #fff;
+}
+
+.list-header {
+  display: flex;
+  height: 69rpx;
+  width: 100%;
+  background: rgba(237,237,237,1);
+}
+
+.list-header .item {
+  flex: 1;
+  text-align: center;
+  line-height: 69rpx;
+  font-size: 15px;
+  font-family: PingFangSC-Regular;
+  font-weight: bold;
+  color: rgba(51,51,51,1);
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 108rpx;
+  font-size: 15px;
+  font-family: PingFangSC-Regular;
+  font-weight: bold;
+  color: rgba(234,100,103,1);
+}
+
+.list-item view {
+  flex: 1;
+  text-align: center;
+}
+
+.index image {
+  width: 61rpx;
+  height: 61rpx;
+  vertical-align: middle;
+}
+
+.user {
+  text-align: left;
+  line-height: 68rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.user image {
+  margin-right: 9rpx;
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}

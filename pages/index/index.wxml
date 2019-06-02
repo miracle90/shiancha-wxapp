@@ -1,55 +1,102 @@
 <!--index.wxml-->
 <view class="container">
-  <image class="header-bg" src="../../images/home/bg.png" mode="scaleToFill"></image>
-  <image class="logo" src="../../images/home/logo.png"></image>
-  <image class="title-img" src="../../images/home/title.png"></image>
-  <view class="userinfo">
-    <image class="user-bg" src="../../images/home/user_bg.png"></image>
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-    <text>{{userInfo.nickName}}</text>
-    <image style='margin: 0 18rpx 0 65rpx; width: 23rpx; height: 26rpx;' src="../../images/home/gold.png"></image>
-    <text>14</text>
-    <text style='margin: 0 32rpx; color: #154e9d'>|</text>
-    <image style='width: 29rpx; height: 29rpx;' src="../../images/home/power.png"></image>
-    <text style='margin: 0 32rpx 0 18rpx;'>8/10</text>
-    <image style='width: 25rpx; height: 25rpx;' src="../../images/home/add.png"></image>
-  </view>
-  <view class="regular-wrapper">
-    <image class="regular-bg" src="../../images/home/regular_bg.png"></image>
-    <image style='margin-bottom: 33rpx; width: 157rpx; height: 52rpx;' src="../../images/home/regular.png"></image>
-    <image style='width: 273rpx; height: 103rpx;' src="../../images/home/start.png"></image>
-  </view>
-  <view class="btn-wrapper">
-    <view style="height: 155rpx; width: 184rpx;">
-      <image class='btn-bg' src="../../images/home/hero_bg.png"></image>
-      <text>英雄榜</text>
-      <image src="../../images/home/vs.png" style="right: 18rpx; bottom: 20rpx; height: 83rpx; width: 97rpx;"></image>
+  <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <block wx:else>
+    <image class="logo" src="https://shiancha.guduokeji.com/lib/home/logo.png"></image>
+    <image class="title-img" src="https://shiancha.guduokeji.com/lib/home/title.png"></image>
+    <view class="userinfo">
+      <image class="user-bg" src="https://shiancha.guduokeji.com/lib/home/user_bg.png"></image>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text>{{userInfo.nickName}}</text>
+      <image style='margin: 0 18rpx 0 65rpx; width: 23rpx; height: 26rpx;' src="https://shiancha.guduokeji.com/lib/home/gold.png"></image>
+      <text>14</text>
+      <text style='margin: 0 32rpx; color: #154e9d'>|</text>
+      <image style='width: 29rpx; height: 29rpx;' src="https://shiancha.guduokeji.com/lib/home/power.png"></image>
+      <text style='margin: 0 32rpx 0 18rpx;'>8/10</text>
+      <image style='width: 25rpx; height: 25rpx;' src="https://shiancha.guduokeji.com/lib/home/add.png"></image>
     </view>
-    <view style="padding-top: 33rpx; height: 193rpx; width: 304rpx;">
-      <image class='btn-bg' src="../../images/home/feature_bg.png"></image>
-      <text style='font-size: 21px;'>专场赛</text>
-      <text style='float: right; font-size: 12px; font-family: SourceHanSansCN-Regular;'>限时开放</text>
-      <text style='display: block; margin-top: 24rpx; font-size: 10px; font-family: SourceHanSansCN-Regular;'>6月25日-6月26日</text>
-      <image src="../../images/home/cup.png" style="right: 21rpx; bottom: 25rpx; height: 82rpx; width: 93rpx;"></image>
+    <view class="regular-wrapper" bindtap="goRegular">
+      <image class="regular-bg" src="https://shiancha.guduokeji.com/lib/home/regular_bg.png"></image>
+      <image style='margin-bottom: 33rpx; width: 157rpx; height: 52rpx;' src="https://shiancha.guduokeji.com/lib/home/regular.png"></image>
+      <image style='width: 273rpx; height: 103rpx;' src="https://shiancha.guduokeji.com/lib/home/start.png"></image>
     </view>
-    <view style="height: 155rpx; width: 184rpx;">
-      <image class='btn-bg' src="../../images/home/draw_bg.png"></image>
-      <text>抽奖</text>
-      <image src="../../images/home/gift.png" style="right: 11rpx; bottom: 18rpx; height: 80rpx; width: 112rpx;"></image>
+    <view class="btn-wrapper">
+      <view bindtap="goRank" style="height: 155rpx; width: 184rpx;">
+        <image class='btn-bg' src="https://shiancha.guduokeji.com/lib/home/hero_bg.png"></image>
+        <text>英雄榜</text>
+        <image src="https://shiancha.guduokeji.com/lib/home/vs.png" style="right: 18rpx; bottom: 20rpx; height: 83rpx; width: 97rpx;"></image>
+      </view>
+      <view bindtap="goFeature" style="padding-top: 33rpx; height: 193rpx; width: 304rpx;">
+        <image class='btn-bg' src="https://shiancha.guduokeji.com/lib/home/feature_bg.png"></image>
+        <text style='font-size: 21px;'>专场赛</text>
+        <text style='float: right; font-size: 12px; font-family: SourceHanSansCN-Regular;'>限时开放</text>
+        <text style='display: block; margin-top: 24rpx; font-size: 10px; font-family: SourceHanSansCN-Regular;'>6月25日-6月26日</text>
+        <image src="https://shiancha.guduokeji.com/lib/home/cup.png" style="right: 21rpx; bottom: 25rpx; height: 82rpx; width: 93rpx;"></image>
+      </view>
+      <view bindtap="goAward" style="height: 155rpx; width: 184rpx;">
+        <image class='btn-bg' src="https://shiancha.guduokeji.com/lib/home/draw_bg.png"></image>
+        <text>抽奖</text>
+        <image src="https://shiancha.guduokeji.com/lib/home/gift.png" style="right: 11rpx; bottom: 18rpx; height: 80rpx; width: 112rpx;"></image>
+      </view>
+    </view>
+    <view class='bottom-font'>
+      <text style='margin-right: 60rpx;' bindtap="showRules">活动规则</text>
+      <text bindtap="showAbout">关于我们</text>
+    </view>
+  </block>
+  <!-- 关于我们 -->
+  <view class="about" wx:if="{{ showAbout }}">
+    <view class="about-container">
+      <image class="about-bg" src="https://shiancha.guduokeji.com/lib/home/about_bg.png" alt=""></image>
+      <image class="about-star" src="https://shiancha.guduokeji.com/lib/home/about_star.png" alt=""></image>
+      <image class="about-title" src="https://shiancha.guduokeji.com/lib/home/about_title.png" alt=""></image>
+      <text class="about-about">关于我们</text>
+      <text class="about-desc">食安查”小程序是中国健康传媒集团在国家药品监督管理局指导下，推出的食品安全科普知识答题小程序。旨在科普食品安全知识，提高消费者食品安全意识。</text>
+      <view class="about-qrcode">
+        <image src="https://shiancha.guduokeji.com/lib/home/about_qrcode.png"></image>
+      </view>
+      <text class="about-click">点击二维码，然后长按扫码即可进入食品安全抽检公布结果查询</text>
+      <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenAbout"></image>
     </view>
   </view>
-  <view class='bottom-font'>
-    <text style='margin-right: 60rpx;'>活动规则</text>
-    <text>关于我们</text>
+  <!-- 活动规则 -->
+  <view class="about" wx:if="{{ showRules }}">
+    <view class="about-container">
+      <image class="about-bg" src="https://shiancha.guduokeji.com/lib/home/about_bg.png" alt=""></image>
+      <image class="about-star" src="https://shiancha.guduokeji.com/lib/home/about_star.png" alt=""></image>
+      <image class="about-title" src="https://shiancha.guduokeji.com/lib/home/rules_title.png" alt=""></image>
+      <text class="about-about" style="color: rgba(152,52,255,1);">活动规则</text>
+      <image class="rules-title-bg" style="top: 93rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image>
+      <text class="rules-title" style="top: 104rpx;">常规赛规则</text>
+      <text class="rules-desc" style="top: 193rpx;">玩家初始体力值为10，答对不扣体力值，答错1次扣1体力值，每成功答对10题解锁1次幸运转盘，抽取神秘礼品。每6分钟自动增加1体力值。</text>
+      <image class="rules-title-bg" style="top: 407rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image>
+      <text class="rules-title" style="top: 418rpx;">专场赛规则</text>
+      <text class="rules-desc" style="top: 507rpx;">共300道不重复题目，有答题总时间记录，中间过程可暂停，最多使用10体力值。</text>
+      <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/rules_go.png" alt="" bindtap="hiddenAbout"></image>
+      <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenRules"></image>
+    </view>
   </view>
-  <!-- <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <!-- 英雄帖 -->
+  <view class="about" wx:if="{{ showContest }}">
+    <view class="contest-container">
+      <image class="contest-bg" src="https://shiancha.guduokeji.com/lib/home/contest_bg.png" alt=""></image>
+      <image class="contest-title" src="https://shiancha.guduokeji.com/lib/home/contest_title.png" alt=""></image>
+      <text class="rules-desc" style="top: 198rpx; left: 181rpx; right: 148rpx; color: rgba(3,0,119,1);">由于你的优异表现，获得一张英雄帖，持此贴可以在6月25-6月26日参加高手云集的专场赛</text>
+      <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/contest_get.png" alt="" bindtap="hiddenAbout"></image>
+      <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenRules"></image>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view> -->
+  <!-- 宝箱 -->
+  <view class="about" wx:if="{{ showTreasure }}">
+    <view class="treasure-container">
+      <image class="treasure-bg" src="https://shiancha.guduokeji.com/lib/home/treasure_bg.png" alt=""></image>
+      <image class="about-star" src="https://shiancha.guduokeji.com/lib/home/about_star.png" alt=""></image>
+      <image class="treasure-logo" src="https://shiancha.guduokeji.com/lib/home/treasure_logo.png" alt=""></image>
+      <text class="treasure-tip">体力礼包</text>
+      <text class="treasure-add">体力  +3</text>
+      <image class="rules-line" src="https://shiancha.guduokeji.com/lib/home/treasure_line.png" alt=""></image>
+      <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/contest_get.png" alt="" bindtap="hiddenAbout"></image>
+    </view>
+  </view>
 </view>

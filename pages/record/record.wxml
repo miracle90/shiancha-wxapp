@@ -1,0 +1,31 @@
+<!--pages/record/record.wxml-->
+<view class="container">
+  <image class="header-bg" src="https://shiancha.guduokeji.com/lib/record/record_bg.png" mode="scaleToFill"></image>
+  <view class='record-title'>
+    <!-- <image class="avatar" src="https://shiancha.guduokeji.com/lib/record/record_bg.png" mode="scaleToFill"></image> -->
+    <view class='title-info'>
+      <image class="avatar" src="{{ avatar }}"></image>
+      <view>{{ '大大小小' }}</view>
+      <image class='info-gold' src='https://shiancha.guduokeji.com/lib/record/record_gold.png'></image>
+      <view>{{ 14 }}</view>
+    </view>
+  </view>
+  <view class='record-wrap'>
+    <image class='record-star' src='https://shiancha.guduokeji.com/lib/record/record_star.png' style='left: 136rpx;'></image>
+    <image class='record-star' src='https://shiancha.guduokeji.com/lib/record/record_star.png' style='right: 136rpx;'></image>
+    <view style='font-size: 17px;'>抽奖记录</view>
+    <view class='table-header'>
+      <view style='width: 240rpx;'>礼品</view>
+      <view style='flex: 1;'>时间</view>
+    </view>
+    <view wx:for="{{ recordList }}"
+          wx:for-item="item"
+          wx:for-index="idx"
+          wx:key="idx"
+          class='list-item'>
+      <view style='width: 240rpx;'>{{item.gift}}</view>
+      <view style='flex: 1; color: #FFED7FFF;'>{{item.time}}</view>
+    </view>
+  </view>
+</view>
+

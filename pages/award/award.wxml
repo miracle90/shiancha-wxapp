@@ -1,0 +1,83 @@
+<!--pages/award/award.wxml-->
+<view class="container">
+  <image class="header-bg" src="https://shiancha.guduokeji.com/lib/award/award_bg.png" mode="scaleToFill"></image>
+  <image class="award-show" src="https://shiancha.guduokeji.com/lib/award/award_show.png"></image>
+  <view class='award-data'>
+    你还有{{3}}次抽奖机会
+    <view class='award-gold'><image class='' src='https://shiancha.guduokeji.com/lib/award/award_gold.png'></image>{{14}}</view>
+  </view>
+  <view class='spin-wrap'>
+    <view class='spin-container'>
+      <image src='https://shiancha.guduokeji.com/lib/award/award_spin.png' class='award-spin'></image>
+      <text
+        style="transform: {{ 'translate3d(-50%, -50%, 0) rotate(' + idx * 60 + 'deg)' }}"
+        class='spin-item'
+        wx:for="{{ awardList }}"
+        wx:for-item="item"
+        wx:for-index="idx"
+        wx:key="idx">{{item}}</text>
+    </view>
+    <image src='https://shiancha.guduokeji.com/lib/award/award_arrow.png' class='award-arrow'></image>
+    <image src='https://shiancha.guduokeji.com/lib/award/award_draw.png' class='award-draw'></image>
+    <view class='award-num'>{{3}}次机会</view>
+  </view>
+  <view class='award-record'>抽奖记录>></view>
+  <!-- 获取礼物 -->
+  <view class="about" wx:if="{{ showGift }}">
+    <view class="about-container" style='margin-top: 279rpx; height: 776rpx;'>
+      <image class="about-bg" src="https://shiancha.guduokeji.com/lib/award/award_pop_bg.png" alt=""></image>
+      <image class="about-title" src="https://shiancha.guduokeji.com/lib/award/award_success.png" style='top: -19%'></image>
+      <view class='out_tips3'>恭喜你获得神秘礼物一份</view>
+      <view class='form-item' style='top: 256rpx;'>
+        <text>姓名</text><input />
+      </view>
+      <view class='form-item' style='top: 375rpx;'>
+        <text>手机号</text><input />
+      </view>
+      <view class='form-item' style='top: 494rpx;'>
+        <text>收货地址</text><input />
+      </view>
+      <view class="answer-wrap" style='top: 638rpx;'>
+        <image class="right-btn" src="https://shiancha.guduokeji.com/lib/award/get.png"></image>          
+      </view>
+    </view>
+  </view>
+  <!-- 神秘能量 -->
+  <view class="about" wx:if="{{ showMystical }}">
+    <view class="about-container" style='height: 491rpx;'>
+      <image class="about-bg" src="https://shiancha.guduokeji.com/lib/award/award_pop_bg.png" alt=""></image>
+      <image class="about-title" src="https://shiancha.guduokeji.com/lib/award/award_success.png" alt=""></image>
+      <view class='out_tips1'>神秘能量</view>
+      <view class='out_tips2'>恭喜获得10答题体力</view>
+      <view class="answer-wrap">        
+        <image class="right-btn" src="https://shiancha.guduokeji.com/lib/award/goon.png"></image>          
+      </view>
+    </view>
+  </view>
+  <!-- 领取成功 -->
+  <view class="about" wx:if="{{ showSuccess }}">
+    <view class="about-container" style='height: 491rpx;'>
+      <image class="about-bg" src="https://shiancha.guduokeji.com/lib/award/award_pop_bg.png" alt=""></image>
+      <image class="about-title" src="https://shiancha.guduokeji.com/lib/award/award_success.png" alt=""></image>
+      <view class='out_tips1'>领取成功</view>
+      <view class='out_tips2'>请耐心等待！礼物会送到您身边！</view>
+      <view class="answer-wrap">
+        <image class="right-btn" style='margin-right: 12rpx;' src="https://shiancha.guduokeji.com/lib/feature/go_home.png"></image>          
+        <image class="right-btn" src="https://shiancha.guduokeji.com/lib/award/award_get.png"></image>          
+      </view>
+    </view>
+  </view>
+  <!-- 领取失败 -->
+  <view class="about" wx:if="{{ showFail }}">
+    <view class="about-container" style='height: 491rpx;'>
+      <image class="about-bg" src="https://shiancha.guduokeji.com/lib/award/award_pop_bg.png" alt=""></image>
+      <image class="about-title" src="https://shiancha.guduokeji.com/lib/award/award_fail.png" alt=""></image>
+      <view class='out_tips1' style='color: #EB172BFF;'>领取失败</view>
+      <view class='out_tips2' style='color: #fff;'>请填写完整信息</view>
+      <view class="answer-wrap">
+        <image class="right-btn" style='margin-right: 12rpx;' src="https://shiancha.guduokeji.com/lib/award/award_cancel.png"></image>          
+        <image class="right-btn" src="https://shiancha.guduokeji.com/lib/award/award_rewrite.png"></image>          
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,38 @@
+<!--pages/ranking/ranking.wxml-->
+<view class="container">
+  <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
+  <image class="header-bg" src="https://shiancha.guduokeji.com/lib/ranking/ribbon.png" mode="scaleToFill" style="top: 20rpx; height: 95%;"></image>
+  <image class="cup" src="https://shiancha.guduokeji.com/lib/ranking/cup.png"></image>
+  <view class="tab">
+    <view class="tab-item {{ activeIndex === 1 ? 'active' : '' }}" bindtap="changeIndex" data-index="1">
+      <image class="tab-bg" wx:if="{{ activeIndex !== 1 }}" src="https://shiancha.guduokeji.com/lib/ranking/tab_bg.png"></image>
+      预选赛
+    </view>
+    <view class="tab-item {{ activeIndex === 2 ? 'active' : '' }}" bindtap="changeIndex" data-index="2">
+      <image class="tab-bg" wx:if="{{ activeIndex !== 2 }}" src="https://shiancha.guduokeji.com/lib/ranking/tab_bg.png"></image>
+      专场赛
+    </view>
+  </view>
+  <view class="list">
+    <view class="list-header">
+      <view class="item">名次</view>
+      <view class="item">昵称</view>
+      <view class="item">答对</view>
+      <view class="item">用时</view>
+    </view>
+    <view class="list-item" wx:for="{{ rankList }}" wx:for-item="item" wx:for-index="idx" wx:key="idx">
+      <view class="index" style="width: 80rpx;">
+        <image wx:if="{{ idx === 0 }}" src="https://shiancha.guduokeji.com/lib/ranking/first.png"></image>
+        <image wx:elif="{{ idx === 1 }}" src="https://shiancha.guduokeji.com/lib/ranking/second.png"></image>
+        <image wx:elif="{{ idx === 2 }}" src="https://shiancha.guduokeji.com/lib/ranking/third.png"></image>
+        <text wx:else>{{ idx + 1 }}</text>
+      </view>
+      <view class="user">
+        <image src="{{item.url}}"></image>
+        {{item.nickname}}
+      </view>
+      <view>{{item.count}}</view>
+      <view>{{item.time}}</view>
+    </view>
+  </view>
+</view>

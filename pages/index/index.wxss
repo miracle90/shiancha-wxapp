@@ -111,3 +111,236 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.about {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.about-container {
+  position: relative;
+  margin: 137rpx auto;
+  padding: 0 48rpx;
+  width: 624rpx;
+  height: 791rpx;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.about-bg {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 4;
+}
+
+.about-star {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 408rpx;
+  height: 408rpx;
+  z-index: 5;
+}
+
+.about-title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 408rpx;
+  height: 82rpx;
+  z-index: 6;
+}
+
+.about-about {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  font-size: 21px;
+  font-family: Adobe Heiti Std R;
+  font-weight: normal;
+  letter-spacing: 2px;
+  z-index: 7;
+}
+
+.about-desc {
+  position: absolute;
+  top: 103rpx;
+  left: 48rpx;
+  right: 48rpx;
+  font-size: 14px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255,255,255,1);
+  line-height: 45rpx;
+  z-index: 5;
+}
+
+.about-qrcode {
+  position: absolute;
+  top: 321rpx;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  padding: 16rpx;
+  width: 290rpx;
+  height: 290rpx;
+  z-index: 5;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.about-qrcode image {
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+}
+
+.about-click {
+  position: absolute;
+  top: 663rpx;
+  left: 48rpx;
+  right: 48rpx;
+  font-size: 14px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color:rgba(255,255,255,1);
+  line-height: 45rpx;
+  z-index: 5;
+}
+
+.about-cancel {
+  position: absolute;
+  bottom: -137rpx;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: 87rpx;
+  height: 87rpx;
+}
+
+.rules-title-bg {
+  position: absolute;
+  left: 28rpx;
+  width: 232rpx;
+  height: 84rpx;
+  z-index: 5;
+}
+
+.rules-title {
+  position: absolute;
+  left: 64rpx;
+  font-size: 16px;
+  font-family: PingFangSC-Regular;
+  z-index: 6;
+}
+
+.rules-desc {
+  position: absolute;
+  left: 61rpx;
+  right: 61rpx;
+  font-size: 14px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  line-height: 45rpx;
+  z-index: 5;
+}
+
+.rules-go {
+  position: absolute;
+  bottom: 44rpx;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: 258rpx;
+  height: 97rpx;
+  z-index: 5;
+}
+
+.contest-container {
+  position: relative;
+  margin: 137rpx auto 0;
+  width: 628rpx;
+  height: 632rpx;
+}
+
+.contest-bg {
+  height: 100%;
+  width: 100%;
+}
+
+.contest-title {
+  position: absolute;
+  top: 82rpx;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: 170rpx;
+  height: 55rpx;
+  z-index: 6;
+}
+
+.treasure-container {
+  position: relative;
+  margin: 322rpx auto 0;
+  width: 624rpx;
+  height: 531rpx;
+}
+
+.treasure-bg {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 4; 
+}
+
+.treasure-logo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 6;
+  height: 179rpx;
+  width: 235rpx;
+}
+
+.treasure-tip {
+  position: absolute;
+  top: 133rpx;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  font-size: 20px;
+  font-family: SourceHanSansCN-Regular;
+  font-weight: 400;
+  color: rgba(255,94,158,1);
+  line-height: 25rpx;
+  z-index: 5;
+}
+
+.treasure-add {
+  position: absolute;
+  top: 213rpx;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  font-size: 15px;
+  font-family: SourceHanSansCN-Regular;
+  font-weight: 400;
+  color: rgba(252,255,1,1);
+  line-height: 25rpx;
+  z-index: 5;
+}
+
+.rules-line {
+  position: absolute;
+  top: 319rpx;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: 526rpx;
+  height: 2rpx;
+  z-index: 5;
+}

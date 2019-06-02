@@ -1,6 +1,11 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/regular/regular",
+    "pages/record/record",
+    "pages/ranking/ranking",
+    "pages/feature/feature",
+    "pages/award/award"
   ],
   "window": {
     "backgroundTextStyle": "light",
