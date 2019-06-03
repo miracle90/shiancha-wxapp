@@ -1,7 +1,7 @@
 <!--pages/feature/feature.wxml-->
 <view class="container">
   <block wx:if="{{ !ing }}">
-    <image class="header-bg" src="https://shiancha.guduokeji.com/lib/regular/bg.png" mode="scaleToFill"></image>
+    <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
     <image class="regular-title" src="https://shiancha.guduokeji.com/lib/feature/feature.png"></image>
     <view class="regular-desc">在专场赛中，你会获得10个专场体力值来助你完成比赛。</view>
     <view class="regular-desc" style='margin-top: 0;'>比赛一共300道不重复题目，答题时间会被记录，中间退出时间暂停，专场体力值用完或答完300道题即可结束比赛。</view>
@@ -42,7 +42,7 @@
     </view>
   </block>
   <block wx:else>
-    <image class="header-bg" src="https://shiancha.guduokeji.com/lib/regular/ing_bg.png" mode="scaleToFill"></image>
+    <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
     <view class="percent">
       <image class="percent-bg" src="https://shiancha.guduokeji.com/lib/regular/percent.png"></image>
       <image class="power-item" wx:for="{{ power }}" wx:for-index="idx" wx:key="idx" src="https://shiancha.guduokeji.com/lib/regular/power.png"></image>
@@ -52,21 +52,25 @@
       <image class="gold-icon" src="https://shiancha.guduokeji.com/lib/regular/gold.png"></image>14
     </view>
     <view class='feature-result'>
-      <text class='right'>答对：{{3}}</text>
-      <text class='mistake'>答错：{{4}}</text>
-      <text class='duration'>所用时长：{{'01:15:55'}}</text>
+      <text class='right'>答对：{{0}}</text>
+      <text class='mistake'>答错：{{0}}</text>
+      <text class='duration'>所用时长：{{'00:00:00'}}</text>
     </view>
     <image class="question-header" src="https://shiancha.guduokeji.com/lib/regular/header.png"></image>
     <image class="question-container" src="https://shiancha.guduokeji.com/lib/regular/container.png"></image>
     <image class="question-logo" src="https://shiancha.guduokeji.com/lib/regular/logo.png"></image>
     <image class="question-blank" src="https://shiancha.guduokeji.com/lib/regular/blank.png"></image>
     <view class="quest-wrap">
-      <view class="quest-index">- 第 {{question.index}} 题 -</view>
-      <view class="quest-desc">{{ question.desc }}</view>
-      <view class="quest-item">A. {{question.first}}</view>
+      <view class="quest-index">- 第 {{ index }} 题 -</view>
+      <view class="quest-desc">{{ question.title }}</view>
+      <view class="quest-item {{ selectedIndex === '1' ? 'active' : ''}}" bindtap="selected" data-index="1">A. {{ question.firstAnswer }}</view>
+      <view class="quest-item {{ selectedIndex === '2' ? 'active' : ''}}" bindtap="selected" data-index="2">B. {{ question.secondAnswer }}</view>
+      <view class="quest-item {{ selectedIndex === '3' ? 'active' : ''}}" bindtap="selected" data-index="3">C. {{ question.thirdAnswer }}</view>
+      <view class="quest-item {{ selectedIndex === '4' ? 'active' : ''}}" bindtap="selected" data-index="4">D. {{ question.fourthAnswer }}</view>
+      <!-- <view class="quest-item">A. {{question.first}}</view>
       <view class="quest-item">B. {{question.second}}</view>
       <view class="quest-item">C. {{question.third}}</view>
-      <view class="quest-item active">D. {{question.fourth}}</view>
+      <view class="quest-item active">D. {{question.fourth}}</view> -->
     </view>
     <!-- 正确 -->
     <view class="about" wx:if="{{ showRight }}">

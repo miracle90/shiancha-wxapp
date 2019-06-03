@@ -1,6 +1,6 @@
 <!--pages/record/record.wxml-->
 <view class="container">
-  <image class="header-bg" src="https://shiancha.guduokeji.com/lib/record/record_bg.png" mode="scaleToFill"></image>
+  <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
   <view class='record-title'>
     <!-- <image class="avatar" src="https://shiancha.guduokeji.com/lib/record/record_bg.png" mode="scaleToFill"></image> -->
     <view class='title-info'>

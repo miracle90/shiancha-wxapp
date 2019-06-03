@@ -2,6 +2,7 @@ import { getOpenidApi } from './utils/api.js'
 
 App({
   onLaunch: function () {
+    const self = this
     // 展示本地存储能力
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
@@ -44,7 +45,9 @@ App({
                     success: function (res) {
                       const { code, user } = res.data
                       if (code === 0) {
-                        const openid = user.openId //返回openid
+                        self.globalData.userInfo = self.globalData.userInfo || {}
+                        self.globalData.userInfo = { ...self.globalData.userInfo, ...user }
+                        // const openid = user.openId //返回openid
                       }
                     }
                   })

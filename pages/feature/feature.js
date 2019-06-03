@@ -1,3 +1,9 @@
+import { startFeatureApi, answerFeatureApi } from '../../utils/api.js'
+
+
+//获取应用实例
+const app = getApp()
+
 Page({
   /**
    * 页面的初始数据
@@ -11,15 +17,12 @@ Page({
     showTips: false,
     showEnd: false,
     showSuccess: false,
-    power: 2,
-    question: {
-      index: 1,
-      desc: '成功邀请好友积分成功邀请好友积分成功成功邀请好友积分成功邀请好友积分邀请成功邀请好友积分成功邀请好友积分好友成功邀请好友积分成功邀请好友积分积分',
-      first: '20',
-      second: '30',
-      third: '40',
-      fourth: '50'
-    }
+    selectedIndex: '',
+    power: 10,
+    points: 0,
+    index: 1,
+    question: {},
+    answer: {}
   },
 
   /**
@@ -30,8 +33,89 @@ Page({
   },
 
   start() {
+    this.userId = app.globalData.userInfo.id
+    let questionId = wx.getStorageSync('questionId') || 0
+    wx.request({
+      url: startFeatureApi,
+      method: 'POST',
+      data: {
+        userId: this.userId,
+        questionId: questionId
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: res => {
+        let { code, question, msg } = res.data
+        if (code === 0) {
+          let { power, points } = question
+          power = Math.min(10, power)
+          this.setData({
+            question,
+            power,
+            points,
+            ing: true
+          })
+        } else {
+          wx.showToast({
+            title: msg,
+            icon: 'none',
+            duration: 2000
+          })
+          
+        }
+      }
+    })
+  },
+
+  selected (e) {
+    const selectedIndex = e.target.dataset.index
     this.setData({
-      ing: true
+      selectedIndex
+    })
+    wx.request({
+      url: answerFeatureApi,
+      method: 'POST',
+      data: {
+        userId: this.userId,
+        answer: selectedIndex,
+        questionId: this.data.question.id
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: res => {
+        let { code, result, question: answer, user } = res.data
+        if (code === 0) {
+          let { power, points } = answer
+          let obj = {}
+          // 答题
+          // 1、如果体力消耗完了
+          // 2、正确
+          // 3、错误
+          // 4、答对十题，展示轮盘
+          // if (result === 'true') {
+          //   if (points % 10 === 0) {
+          //     obj['showSpin'] = true
+          //   } else {
+          //     obj['showRight'] = true
+          //   }
+          // }
+          // if (result === 'false') {
+          //   if (!power || power < 1) {
+          //     obj['showOut'] = true
+          //   } else {
+          //     obj['showError'] = true
+          //   }
+          // }
+          power = Math.min(10, power)
+          power = Math.max(10 - power, power)
+          obj['answer'] = answer
+          obj['power'] = power
+          obj['points'] = points
+          this.setData(obj)
+        }
+      }
     })
   },
 
