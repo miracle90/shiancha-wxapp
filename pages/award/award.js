@@ -1,4 +1,4 @@
-import { getOpenidApi, awardApi } from '../../utils/api.js'
+import { getOpenidApi, awardApi, getGiftApi } from '../../utils/api.js'
 
 //获取应用实例
 const app = getApp()
@@ -13,12 +13,33 @@ Page({
     showSuccess: false,
     showFail: false,
     showMystical: false,
-    showGift: true,
+    showGift: false,
     prizeCount: 0,
     points: 0,
-    animationData: null
+    animationData: null,
+    userName: '',
+    userPhone: '',
+    userAddr: ''
   },
   
+  inputName (e) {
+    this.setData({
+      userName: e.detail.value
+    })
+  },
+
+  inputPhone (e) {
+    this.setData({
+      userPhone: e.detail.value
+    })
+  },
+
+  inputAddr (e) {
+    this.setData({
+      userAddr: e.detail.value
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -27,6 +48,48 @@ Page({
     this.commonDeg = 3600
     this.extraDeg = 0
     this.getData()
+  },
+
+  get () {
+    let data = {}
+    let { userName, userPhone, userAddr } = this.data
+    if (!userName || !userPhone || !userAddr) {
+      wx.showToast({
+        title: '请填写完整信息',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    data = {
+      userId: app.globalData.userInfo.id,
+      userName,
+      userPhone,
+      userAddr
+    }
+    wx.request({
+      url: getGiftApi,
+      method: 'POST',
+      data,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: res => {
+        const { code } = res.data
+        if (code === 0) {
+          this.setData({
+            showGift: false,
+            showSuccess: true
+          })
+        }
+        //  else {
+        //   this.setData({
+        //     showGift: false,
+        //     showFail: true
+        //   })
+        // }
+      }
+    })
   },
 
   // 点击抽奖
@@ -108,6 +171,12 @@ Page({
           }
         })
       }
+    })
+  },
+
+  goIndex () {
+    wx.navigateTo({
+      url: '../index/index'
     })
   },
 

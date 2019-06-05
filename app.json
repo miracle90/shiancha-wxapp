@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/award/award",
     "pages/index/index",
+    "pages/award/award",
     "pages/feature/feature",
     "pages/regular/regular",
     "pages/record/record",

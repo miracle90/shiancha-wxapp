@@ -211,6 +211,7 @@
 }
 
 .form-item text {
+  margin-right: 38rpx;
   width: 136rpx;
   text-align: justify;
 }

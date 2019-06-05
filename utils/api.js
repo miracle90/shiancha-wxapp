@@ -34,3 +34,6 @@ export const awardApi = baseUrl + '/main/user/award'
 
 // 获取内容
 export const getContentApi = baseUrl + '/main/content/getContent'
+
+// 领取奖品
+export const getGiftApi = baseUrl + '/main/user/insertPrizeRecord'
