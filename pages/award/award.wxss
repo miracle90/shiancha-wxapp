@@ -138,6 +138,16 @@
   z-index: 6;
 }
 
+.fail-title {
+  position: absolute;
+  top: -8%;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: 413rpx;
+  height: 82rpx;
+  z-index: 6;
+}
+
 .out_tips1 {
   position: absolute;
   top: 116rpx;
