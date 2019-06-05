@@ -1,5 +1,5 @@
 import { getPrizeRecordApi, getOpenidApi } from '../../utils/api.js'
-
+const moment = require('../../utils/moment.js')
 //获取应用实例
 const app = getApp()
 
@@ -59,6 +59,9 @@ Page({
                 success: res => {
                   const { code, prizeRecords } = res.data
                   if (code === 0) {
+                    prizeRecords.map(item => {
+                      if (item.createTime) item.createTime = moment(item.createTime).format('YYYY-MM-DD HH:mm:ss')
+                    })
                     this.setData({
                       recordList: prizeRecords
                     })
