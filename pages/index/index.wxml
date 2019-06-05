@@ -20,6 +20,7 @@
       <image class="regular-bg" src="https://shiancha.guduokeji.com/lib/home/regular_bg.png"></image>
       <image style='margin-bottom: 33rpx; width: 157rpx; height: 52rpx;' src="https://shiancha.guduokeji.com/lib/home/regular.png"></image>
       <image style='width: 273rpx; height: 103rpx;' src="https://shiancha.guduokeji.com/lib/home/start.png"></image>
+      <!-- <image style='width: 273rpx; height: 103rpx;' src="{{ btnSrc }}"></image> -->
     </view>
     <view class="btn-wrapper">
       <view bindtap="goRank" style="height: 155rpx; width: 184rpx;">
@@ -52,7 +53,7 @@
       <image class="about-star" src="https://shiancha.guduokeji.com/lib/home/about_star.png" alt=""></image>
       <image class="about-title" src="https://shiancha.guduokeji.com/lib/home/about_title.png" alt=""></image>
       <text class="about-about">关于我们</text>
-      <text class="about-desc">食安查”小程序是中国健康传媒集团在国家药品监督管理局指导下，推出的食品安全科普知识答题小程序。旨在科普食品安全知识，提高消费者食品安全意识。</text>
+      <text class="about-desc">{{ abouts }}</text>
       <view class="about-qrcode">
         <image src="https://shiancha.guduokeji.com/lib/home/about_qrcode.png"></image>
       </view>
@@ -67,12 +68,12 @@
       <image class="about-star" src="https://shiancha.guduokeji.com/lib/home/about_star.png" alt=""></image>
       <image class="about-title" src="https://shiancha.guduokeji.com/lib/home/rules_title.png" alt=""></image>
       <text class="about-about" style="color: rgba(152,52,255,1);">活动规则</text>
-      <image class="rules-title-bg" style="top: 93rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image>
-      <text class="rules-title" style="top: 104rpx;">常规赛规则</text>
-      <text class="rules-desc" style="top: 193rpx;">玩家初始体力值为10，答对不扣体力值，答错1次扣1体力值，每成功答对10题解锁1次幸运转盘，抽取神秘礼品。每6分钟自动增加1体力值。</text>
-      <image class="rules-title-bg" style="top: 407rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image>
-      <text class="rules-title" style="top: 418rpx;">专场赛规则</text>
-      <text class="rules-desc" style="top: 507rpx;">共300道不重复题目，有答题总时间记录，中间过程可暂停，最多使用10体力值。</text>
+      <!-- <image class="rules-title-bg" style="top: 93rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image> -->
+      <!-- <text class="rules-title" style="top: 104rpx;">常规赛规则</text> -->
+      <!-- <image class="rules-title-bg" style="top: 407rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image> -->
+      <text class="rules-desc" style="top: 193rpx;">{{ rules }}</text>
+      <!-- <text class="rules-title" style="top: 418rpx;">专场赛规则</text> -->
+      <!-- <text class="rules-desc" style="top: 507rpx;">共300道不重复题目，有答题总时间记录，中间过程可暂停，最多使用10体力值。</text> -->
       <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/rules_go.png" alt="" bindtap="goRegular"></image>
       <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenRules"></image>
     </view>
@@ -82,9 +83,10 @@
     <view class="contest-container">
       <image class="contest-bg" src="https://shiancha.guduokeji.com/lib/home/contest_bg.png" alt=""></image>
       <image class="contest-title" src="https://shiancha.guduokeji.com/lib/home/contest_title.png" alt=""></image>
-      <text class="rules-desc" style="top: 198rpx; left: 181rpx; right: 148rpx; color: rgba(3,0,119,1);">由于你的优异表现，获得一张英雄帖，持此贴可以在6月25-6月26日参加高手云集的专场赛</text>
-      <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/contest_get.png" alt="" bindtap="hiddenAbout"></image>
-      <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenRules"></image>
+      <text class="rules-desc" style="top: 198rpx; left: 181rpx; right: 148rpx; color: rgba(3,0,119,1);">{{ heroTip }}</text>
+      <!-- <text class="rules-desc" style="top: 198rpx; left: 181rpx; right: 148rpx; color: rgba(3,0,119,1);">由于你的优异表现，获得一张英雄帖，持此贴可以在6月25-6月26日参加高手云集的专场赛</text> -->
+      <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/contest_get.png" alt="" bindtap="goFeature"></image>
+      <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenContest"></image>
     </view>
   </view>
   <!-- 体力礼包 -->

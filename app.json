@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/award/award",
-    "pages/record/record",
-    "pages/regular/regular",
+    "pages/index/index",
     "pages/feature/feature",
+    "pages/regular/regular",
+    "pages/record/record",
     "pages/ranking/ranking"
   ],
   "window": {

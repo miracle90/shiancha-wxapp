@@ -40,11 +40,11 @@
         <text>收货地址</text><input />
       </view>
       <view class="answer-wrap" style='top: 638rpx;'>
-        <image class="right-btn" src="https://shiancha.guduokeji.com/lib/award/get.png"></image>          
+        <image bindtap="get" class="right-btn" src="https://shiancha.guduokeji.com/lib/award/get.png"></image>          
       </view>
     </view>
   </view>
-  <!-- 神秘能量 -->
+  <!-- 获得体力 -->
   <view class="about" wx:if="{{ showMystical }}">
     <view class="about-container" style='height: 491rpx;'>
       <image class="about-bg" src="https://shiancha.guduokeji.com/lib/award/award_pop_bg.png" alt=""></image>
@@ -52,7 +52,7 @@
       <view class='out_tips1'>神秘能量</view>
       <view class='out_tips2'>恭喜获得10答题体力</view>
       <view class="answer-wrap">        
-        <image class="right-btn" src="https://shiancha.guduokeji.com/lib/award/goon.png"></image>          
+        <image class="right-btn" bindtap="goRegular" src="https://shiancha.guduokeji.com/lib/award/goon.png"></image>          
       </view>
     </view>
   </view>

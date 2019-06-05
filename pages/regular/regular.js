@@ -1,4 +1,4 @@
-import { startRegularApi, answerRegularApi } from '../../utils/api.js'
+import { startRegularApi, answerRegularApi, getContentApi } from '../../utils/api.js'
 
 //获取应用实例
 const app = getApp()
@@ -19,14 +19,42 @@ Page({
     points: 0,
     index: 1,
     question: {},
-    answer: {}
+    answer: {},
+    content: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
+    this.getContent('regular_season_introduction')
+  },
 
+  getContent (str) {
+    wx.request({
+      url: getContentApi,
+      method: 'POST',
+      data: {
+        code: str
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: res => {
+        const { code, value, msg } = res.data
+        if (code === 0) {
+          this.setData({
+            content: value
+          })
+        } else {
+          wx.showToast({
+            title: msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
   },
 
   goAward () {

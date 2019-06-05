@@ -1,4 +1,4 @@
-import { startFeatureApi, answerFeatureApi, checkQualifiApi, updateTimeApi } from '../../utils/api.js'
+import { startFeatureApi, answerFeatureApi, checkQualifiApi, updateTimeApi, getContentApi } from '../../utils/api.js'
 // import { formatTime } from '../../utils/util.js'
 
 //获取应用实例
@@ -20,16 +20,42 @@ Page({
     superPower: 10,
     index: 1,
     question: {},
-    duration: '00:00:00'
+    duration: '00:00:00',
+    content: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    // this.setData({
-    //   ing: true
-    // })
+    this.getContent('special_competition_introduction')
+  },
+
+  getContent (str) {
+    wx.request({
+      url: getContentApi,
+      method: 'POST',
+      data: {
+        code: str
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: res => {
+        const { code, value, msg } = res.data
+        if (code === 0) {
+          this.setData({
+            content: value
+          })
+        } else {
+          wx.showToast({
+            title: msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
   },
 
   // 计时
