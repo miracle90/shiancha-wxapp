@@ -7,8 +7,8 @@
     <image class="title-img" src="https://shiancha.guduokeji.com/lib/home/title.png"></image>
     <view class="userinfo">
       <image class="user-bg" src="https://shiancha.guduokeji.com/lib/home/user_bg.png"></image>
-      <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" mode="cover"></image>
-      <text>{{ userInfo.nickName }}</text>
+      <image class="userinfo-avatar" src="{{ userInfo.avatarUrl || userInfo.url }}" mode="cover"></image>
+      <text>{{ userInfo.nickName || userInfo.nickname  }}</text>
       <image style='margin: 0 18rpx 0 65rpx; width: 23rpx; height: 26rpx;' src="https://shiancha.guduokeji.com/lib/home/gold.png"></image>
       <text>{{ userInfo.points }}</text>
       <text style='margin: 0 32rpx; color: #154e9d'>|</text>
@@ -55,7 +55,7 @@
       <text class="about-about">关于我们</text>
       <text class="about-desc">{{ abouts }}</text>
       <view class="about-qrcode">
-        <image src="https://shiancha.guduokeji.com/lib/home/about_qrcode.png"></image>
+        <image bindtap="previewQrcode" src="https://shiancha.guduokeji.com/lib/home/about_qrcode.png"></image>
       </view>
       <text class="about-click">点击二维码，然后长按扫码即可进入食品安全抽检公布结果查询</text>
       <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenAbout"></image>
@@ -99,6 +99,9 @@
       <text class="treasure-add">体力  +3</text>
       <image class="rules-line" src="https://shiancha.guduokeji.com/lib/home/treasure_line.png" alt=""></image>
       <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/contest_get.png" alt="" bindtap="share"></image>
+      <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenTreasure"></image>
+      <!-- 调用分型接口 -->
+      <button class="share-btn" open-type="share" plain="true"></button>
     </view>
   </view>
 </view>

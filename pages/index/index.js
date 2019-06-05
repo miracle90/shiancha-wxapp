@@ -10,7 +10,13 @@ Page({
     showRules: false,
     showContest: false,
     showTreasure: false,
-    userInfo: {},
+    userInfo: {
+      url: 'https://shiancha.guduokeji.com/lib/new/logo.png',
+      points: 0,
+      nickname: '点击登录',
+      iconPower: 0,
+      power: 0
+    },
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     // btnSrc: 'https://shiancha.guduokeji.com/lib/home/start.png',
@@ -134,12 +140,21 @@ Page({
       }
     })
   },
-  share () {
-    wx.showToast({
-      title: '右上角转发给好友，即可+3体力哦',
-      icon: 'none',
-      duration: 2000
+  previewQrcode () {
+    wx.previewImage({
+      current: 'https://shiancha.guduokeji.com/lib/home/about_qrcode.png',
+      urls: ['https://shiancha.guduokeji.com/lib/home/about_qrcode.png']
     })
+  },
+  share () {
+    this.setData({
+      showTreasure: false
+    })
+    // wx.showToast({
+    //   title: '右上角转发给好友，即可+3体力哦',
+    //   icon: 'none',
+    //   duration: 2000
+    // })
   },
   goShare () {
     this.setData({
@@ -177,6 +192,11 @@ Page({
       showAbout: false
     })
   },
+  hiddenTreasure () {
+    this.setData({
+      showTreasure: false
+    })
+  },
   hiddenContest () {
     this.setData({
       showContest: false
@@ -191,7 +211,6 @@ Page({
     })
   },
   getUserInfo: function(e) {
-    console.log(e)
     if (e.detail.userInfo) {
       app.globalData.userInfo = e.detail.userInfo
       this.setData({
@@ -221,11 +240,11 @@ Page({
             userInfo: user
           })
         } else {
-          wx.showToast({
-            title: msg,
-            icon: 'none',
-            duration: 5000
-          })
+          // wx.showToast({
+          //   title: msg,
+          //   icon: 'none',
+          //   duration: 5000
+          // })
         }
         this.setData({
           showTreasure: false

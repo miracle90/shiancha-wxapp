@@ -14,6 +14,7 @@ Page({
     showFail: false,
     showMystical: false,
     showGift: false,
+    showOut: false,
     prizeCount: 0,
     points: 0,
     animationData: null,
@@ -40,6 +41,19 @@ Page({
     })
   },
 
+  hiddenFail () {
+    this.setData({
+      showFail: false
+    })
+  },
+  
+  hidden () {
+    this.setData({
+      showGift: false,
+      showFail: false
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -53,11 +67,14 @@ Page({
   get () {
     let data = {}
     let { userName, userPhone, userAddr } = this.data
-    if (!userName || !userPhone || !userAddr) {
-      wx.showToast({
-        title: '请填写完整信息',
-        icon: 'none',
-        duration: 2000
+    if (!userName || !userPhone || !(/^1\d{10}$/.test(userPhone)) || !userAddr) {
+      // wx.showToast({
+      //   title: '请填写完整信息',
+      //   icon: 'none',
+      //   duration: 2000
+      // })
+      this.setData({
+        showFail: true
       })
       return
     }
@@ -81,13 +98,11 @@ Page({
             showGift: false,
             showSuccess: true
           })
+        } else {
+          this.setData({
+            showFail: true
+          })
         }
-        //  else {
-        //   this.setData({
-        //     showGift: false,
-        //     showFail: true
-        //   })
-        // }
       }
     })
   },
@@ -106,9 +121,8 @@ Page({
         'content-type': 'application/json'
       },
       success: res => {
-        let { code, msg, type } = res.data
+        let { code, type, prizeCount } = res.data
         if (code === 0) {
-          type = 1
           let animation = wx.createAnimation({
             duration: 6000,
             timingFunction: "ease",
@@ -123,6 +137,7 @@ Page({
           animation.rotate(this.deg).step();
       
           this.setData({
+            prizeCount,
             animationData: animation.export()
           })
           setTimeout(() => {
@@ -133,11 +148,16 @@ Page({
             })
           }, 6500);
         } else {
-          wx.showToast({
-            title: msg,
-            icon: 'none',
-            duration: 2000
+          this.ing = false
+          this.setData({
+            prizeCount,
+            showOut: true
           })
+          // wx.showToast({
+          //   title: msg,
+          //   icon: 'none',
+          //   duration: 2000
+          // })
         }  
       }
     })

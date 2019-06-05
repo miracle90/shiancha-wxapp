@@ -353,3 +353,17 @@
   height: 2rpx;
   z-index: 5;
 }
+
+.share-btn {
+  position: absolute;
+  bottom: 44rpx;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: 258rpx;
+  height: 97rpx;
+  z-index: 6;
+}
+
+button[plain] {
+  border: 0;
+}

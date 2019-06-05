@@ -16,6 +16,7 @@ Page({
     showSpin: false,
     selectedIndex: '',
     power: 10,
+    iconPower: 10,
     points: 0,
     index: 1,
     question: {},
@@ -120,9 +121,10 @@ Page({
               obj['showError'] = true
             }
           }
-          power = Math.min(10, power)
+          let iconPower = Math.min(10, power)
           obj['answer'] = answer
           obj['power'] = power
+          obj['iconPower'] = iconPower
           obj['points'] = points
           this.setData(obj)
         }
@@ -145,10 +147,11 @@ Page({
         let { code, question, msg } = res.data
         if (code === 0) {
           let { power, points } = question
-          power = Math.min(10, power)
+          let iconPower = Math.min(10, power)
           this.setData({
             question,
             power,
+            iconPower,
             points,
             ing: true
           })

@@ -13,8 +13,8 @@
     <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
     <view class="percent">
       <image class="percent-bg" src="https://shiancha.guduokeji.com/lib/regular/percent.png"></image>
-      <image class="power-item" wx:for="{{ power }}" wx:for-index="idx" wx:key="idx" src="https://shiancha.guduokeji.com/lib/regular/power.png"></image>
-      <image class="power-item" wx:for="{{ 10 - power }}" wx:for-index="idx" wx:key="idx" src="https://shiancha.guduokeji.com/lib/regular/power_null.png"></image>
+      <image class="power-item" wx:for="{{ iconPower }}" wx:for-index="idx" wx:key="idx" src="https://shiancha.guduokeji.com/lib/regular/power.png"></image>
+      <image class="power-item" wx:for="{{ 10 - iconPower }}" wx:for-index="idx" wx:key="idx" src="https://shiancha.guduokeji.com/lib/regular/power_null.png"></image>
     </view>
     <text class="power-percent">{{ power }}/10</text>
     <view class="gold-wrap">
@@ -94,9 +94,9 @@
         <view class="right-answer">答案解析</view>
         <image class="right-blank" src="https://shiancha.guduokeji.com/lib/regular/blank.png"></image>
         <view class="answer-wrap">
-          <view class='right-number'>正确答案：{{3}}</view>
-          <view class='right-user'>{{'66%'}}用户答对</view>
-          <view class="right-know">小知识：创造了与阳光和美景融合的多功能空间，从大小和位置窗户望去，可以看到不同景色</view>
+          <view class='right-number'>正确答案：{{ answer.answer }}</view>
+          <view class='right-user'>{{ answer.percent }}%用户答对</view>
+          <view class="right-know">小知识：{{ answer.reason }}</view>
           <view style='margin-top: 33rpx;'>
             <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/out_btn.png" bindtap='goIndex'></image>          
           </view>
@@ -116,9 +116,9 @@
         <view class="right-answer" style="top: 304rpx;">答案解析</view>
         <image class="right-blank" style="top: 365rpx;" src="https://shiancha.guduokeji.com/lib/regular/blank.png"></image>
         <view class="answer-wrap" style="top: 365rpx;">
-          <view class='right-number'>正确答案：{{3}}</view>
-          <view class='right-user'>{{'66%'}}用户答对</view>
-          <view class="right-know">小知识：创造了与阳光和美景融合的多功能空间，从大小和位置窗户望去，可以看到不同景色</view>
+          <view class='right-number'>正确答案：{{ answer.answer }}</view>
+          <view class='right-user'>{{ answer.percent }}%用户答对</view>
+          <view class="right-know">小知识：{{ answer.reason }}</view>
           <view style='margin-top: 33rpx;'>
             <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/right_next.png" bindtap="next" style="margin-right: 12rpx;"></image>          
             <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/spin_go.png" bindtap="goAward"></image>          

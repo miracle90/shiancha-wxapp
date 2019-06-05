@@ -34,7 +34,7 @@
         <text>姓名</text><input bindinput="inputName" />
       </view>
       <view class='form-item' style='top: 375rpx;'>
-        <text>手机号</text><input bindinput="inputPhone" />
+        <text>手机号</text><input bindinput="inputPhone" maxlength="11" />
       </view>
       <view class='form-item' style='top: 494rpx;'>
         <text>收货地址</text><input bindinput="inputAddr" />
@@ -77,8 +77,20 @@
       <view class='out_tips1' style='color: #EB172BFF;'>领取失败</view>
       <view class='out_tips2' style='color: #fff;'>请填写完整信息</view>
       <view class="answer-wrap">
-        <image class="right-btn" style='margin-right: 12rpx;' src="https://shiancha.guduokeji.com/lib/award/award_cancel.png"></image>          
-        <image class="right-btn" src="https://shiancha.guduokeji.com/lib/award/award_rewrite.png"></image>          
+        <image class="right-btn" style='margin-right: 12rpx;' src="https://shiancha.guduokeji.com/lib/award/award_cancel.png" bindtap="hidden"></image>          
+        <image class="right-btn" src="https://shiancha.guduokeji.com/lib/award/award_rewrite.png" bindtap="hiddenFail"></image>          
+      </view>
+    </view>
+  </view>
+  <!-- 次数用光 -->
+  <view class="about" wx:if="{{ showOut }}">
+    <view class="about-container" style='height: 424rpx;'>
+      <image class="about-bg" src="https://shiancha.guduokeji.com/lib/award/award_pop_bg.png" alt=""></image>
+      <image class="fail-title" src="https://shiancha.guduokeji.com/lib/new/awardfail.png" alt=""></image>
+      <view class='out_tips2' style="top: 128rpx;">您的抽奖次数已用完</view>
+      <view class='out_tips2' style="top: 190rpx;">请继续答题！</view>
+      <view class="answer-wrap" style="top: 290rpx;">        
+        <image class="right-btn" bindtap="goRegular" src="https://shiancha.guduokeji.com/lib/award/goon.png"></image>          
       </view>
     </view>
   </view>
