@@ -1,23 +1,75 @@
-// pages/record/record.js
+import { getPrizeRecordApi, getOpenidApi } from '../../utils/api.js'
+
+//获取应用实例
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    recordList: [
-      { gift: '100体力值', time: '2019-06-25 10:32' },
-      { gift: '100体力值', time: '2019-06-25 10:32' },
-      { gift: '100体力值', time: '2019-06-25 10:32' }
-    ],
-    avatar: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLOvZF344lt6NpsHZfcYVQLqpBsywIhaS6NA8WcXxSBRUNeibRYQhu8uByP4ZuZCeByQMxDcljR5lw/132'
+    recordList: [],
+    avatar: '',
+    nickname: '',
+    points: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
+    this.getData()
+  },
 
+  getData () {
+    wx.login({
+      success: res => {
+        const code = res.code
+        const { nickName: nickname, avatarUrl: iconUrl } = app.globalData.userInfo
+        wx.request({
+          url: getOpenidApi,
+          method: 'POST',
+          data: {
+            nickname,
+            iconUrl,
+            code
+          },
+          header: {
+            'content-type': 'application/json'
+          },
+          success: res => {
+            const { code, user } = res.data
+            const { url: avatar, nickname, points, id } = user
+            if (code === 0) {
+              this.setData({
+                avatar,
+                nickname,
+                points
+              })
+              wx.request({
+                url: getPrizeRecordApi,
+                method: 'POST',
+                data: {
+                  userId: id,
+                },
+                header: {
+                  'content-type': 'application/json'
+                },
+                success: res => {
+                  const { code, prizeRecords } = res.data
+                  if (code === 0) {
+                    this.setData({
+                      recordList: prizeRecords
+                    })
+                  }
+                }
+              })
+            }
+          }
+        })
+      }
+    })
   },
 
   /**

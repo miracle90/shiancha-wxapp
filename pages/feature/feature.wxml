@@ -17,11 +17,11 @@
         <image class="right-blank" style="top: 513rpx;" src="https://shiancha.guduokeji.com/lib/regular/blank.png"></image>
         <view class="answer-wrap" style="top: 513rpx;">
           <view style='margin-top: 33rpx;'>
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_rank.png" style="margin-right: 12rpx;"></image>          
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_regular.png"></image>          
+            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_rank.png" bindtap="goRank" style="margin-right: 12rpx;"></image>          
+            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_regular.png" bindtap="goRegular"></image>          
           </view>
         </view>
-        <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenAbout"></image>
+        <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenTips"></image>
       </view>
     </view>
     <!-- 答题结束 -->
@@ -34,8 +34,8 @@
         <image class="right-blank" style="top: 513rpx;" src="https://shiancha.guduokeji.com/lib/regular/blank.png"></image>
         <view class="answer-wrap" style="top: 513rpx;">
           <view style='margin-top: 33rpx;'>
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_rank.png" style="margin-right: 12rpx;"></image>          
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_regular.png"></image>          
+            <image bindtap="goRank" class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_rank.png" style="margin-right: 12rpx;"></image>          
+            <image bindtap="goRegular" class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_regular.png"></image>          
           </view>
         </view>
       </view>
@@ -45,16 +45,19 @@
     <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
     <view class="percent">
       <image class="percent-bg" src="https://shiancha.guduokeji.com/lib/regular/percent.png"></image>
-      <image class="power-item" wx:for="{{ power }}" wx:for-index="idx" wx:key="idx" src="https://shiancha.guduokeji.com/lib/regular/power.png"></image>
-      <image class="power-item" wx:for="{{ 10 - power }}" wx:for-index="idx" wx:key="idx" src="https://shiancha.guduokeji.com/lib/regular/power_null.png"></image>
+      <image class="power-item" wx:for="{{ superPower }}" wx:for-index="idx" wx:key="idx" src="https://shiancha.guduokeji.com/lib/regular/power.png"></image>
+      <image class="power-item" wx:for="{{ 10 - user.superPower }}" wx:for-index="idx" wx:key="idx" src="https://shiancha.guduokeji.com/lib/regular/power_null.png"></image>
     </view>
     <view class="gold-wrap">
-      <image class="gold-icon" src="https://shiancha.guduokeji.com/lib/regular/gold.png"></image>14
+      <image class="gold-icon" src="https://shiancha.guduokeji.com/lib/regular/gold.png"></image>{{ user.superPoints }}
     </view>
+    <!-- <view class="gold-wrap">
+      <image class="gold-icon" src="https://shiancha.guduokeji.com/lib/regular/gold.png"></image>14
+    </view> -->
     <view class='feature-result'>
-      <text class='right'>答对：{{0}}</text>
-      <text class='mistake'>答错：{{0}}</text>
-      <text class='duration'>所用时长：{{'00:00:00'}}</text>
+      <text class='right'>答对：{{ user.superPoints }}</text>
+      <text class='mistake'>答错：{{ user.superError }}</text>
+      <text class='duration'>所用时长：{{ duration }}</text>
     </view>
     <image class="question-header" src="https://shiancha.guduokeji.com/lib/regular/header.png"></image>
     <image class="question-container" src="https://shiancha.guduokeji.com/lib/regular/container.png"></image>
@@ -88,12 +91,12 @@
         <view class="right-answer">答案解析</view>
         <image class="right-blank" src="https://shiancha.guduokeji.com/lib/regular/blank.png"></image>
         <view class="answer-wrap">
-          <view class='right-number'>正确答案：{{3}}</view>
-          <view class='right-user'>{{'66%'}}用户答对</view>
-          <view class="right-know">小知识：创造了与阳光和美景融合的多功能空间，从大小和位置窗户望去，可以看到不同景色</view>
+          <view class='right-number'>正确答案：{{ answer.answer }}</view>
+          <view class='right-user'>{{ answer.percent }}%用户答对</view>
+          <view class="right-know">小知识：{{ answer.reason }}</view>
           <view style='margin-top: 33rpx;'>
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/right_stop.png" style="margin-right: 12rpx;"></image>          
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/right_next.png"></image>          
+            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/right_stop.png" bindtap='goIndex' style="margin-right: 12rpx;"></image>          
+            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/right_next.png" bindtap="next"></image>          
           </view>
         </view>
       </view>
@@ -113,12 +116,12 @@
         <view class="right-answer">答案解析</view>
         <image class="right-blank" src="https://shiancha.guduokeji.com/lib/regular/blank.png"></image>
         <view class="answer-wrap">
-          <view class='right-number'>正确答案：{{3}}</view>
-          <view class='right-user'>{{'66%'}}用户答对</view>
-          <view class="right-know">小知识：创造了与阳光和美景融合的多功能空间，从大小和位置窗户望去，可以看到不同景色</view>
+          <view class='right-number'>正确答案：{{ answer.answer }}</view>
+          <view class='right-user'>{{ answer.percent }}%用户答对</view>
+          <view class="right-know">小知识：{{ answer.reason }}</view>
           <view style='margin-top: 33rpx;'>
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/right_stop.png" style="margin-right: 12rpx;"></image>          
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/right_next.png"></image>          
+            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/right_stop.png" bindtap='goIndex' style="margin-right: 12rpx;"></image>          
+            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/right_next.png" bindtap="next"></image>          
           </view>
         </view>
       </view>
@@ -138,8 +141,8 @@
           <view class='right-user'>{{'66%'}}用户答对</view>
           <view class="right-know">小知识：创造了与阳光和美景融合的多功能空间，从大小和位置窗户望去，可以看到不同景色</view> -->
           <view style='margin-top: 33rpx;'>
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_home.png" style='margin-right: 12rpx;'></image>          
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_result.png"></image>          
+            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_home.png" bindtap="goIndex" style='margin-right: 12rpx;'></image>          
+            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_result.png" bindtap="goRank"></image>
           </view>
         </view>
       </view>
@@ -156,31 +159,8 @@
         <view class='out_tips' style='width: 100%; color: #FCFF01FF; font-size: 20px;'>恭喜你已通关！</view>
         <view class="answer-wrap">
           <view style='margin-top: -108rpx;'>
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_home.png" style='margin-right: 12rpx;'></image>          
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_result.png"></image>          
-          </view>
-        </view>
-      </view>
-    </view>
-    <!-- 答对10题解锁一次神秘转盘 -->
-    <view class="about" wx:if="{{ showSpin }}">
-      <view class="about-container" style="height: 862rpx; margin-top: 218rpx;">
-        <image class="about-bg" src="https://shiancha.guduokeji.com/lib/regular/right_bg.png" alt=""></image>
-        <image class="about-star" src="https://shiancha.guduokeji.com/lib/home/about_star.png" alt=""></image>
-        <image class="about-title" src="https://shiancha.guduokeji.com/lib/regular/right_top.png" alt=""></image>
-        <text class="about-about">正确</text>
-        <image class='spin-gift' src="https://shiancha.guduokeji.com/lib/regular/spin_gift.png"></image>
-        <view class='spin-tips'>恭喜您！</view>
-        <view class='spin-tips' style='top: 180rpx;'>获得<text style='color: #FF9C01FF;'>1次</text>抽奖机会</view>
-        <view class="right-answer" style="top: 304rpx;">答案解析</view>
-        <image class="right-blank" style="top: 365rpx;" src="https://shiancha.guduokeji.com/lib/regular/blank.png"></image>
-        <view class="answer-wrap" style="top: 365rpx;">
-          <view class='right-number'>正确答案：{{3}}</view>
-          <view class='right-user'>{{'66%'}}用户答对</view>
-          <view class="right-know">小知识：创造了与阳光和美景融合的多功能空间，从大小和位置窗户望去，可以看到不同景色</view>
-          <view style='margin-top: 33rpx;'>
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/right_next.png" style="margin-right: 12rpx;"></image>          
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/spin_go.png"></image>          
+            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_home.png" bindtap="goIndex" style='margin-right: 12rpx;'></image>          
+            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_result.png" bindtap="goRank"></image>          
           </view>
         </view>
       </view>

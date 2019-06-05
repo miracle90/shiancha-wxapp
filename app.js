@@ -47,7 +47,6 @@ App({
                       if (code === 0) {
                         self.globalData.userInfo = self.globalData.userInfo || {}
                         self.globalData.userInfo = { ...self.globalData.userInfo, ...user }
-                        // const openid = user.openId //返回openid
                       }
                     }
                   })

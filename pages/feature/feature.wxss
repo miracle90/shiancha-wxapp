@@ -313,7 +313,7 @@
 
 .right-know {
   margin-top: 31rpx;
-  padding: 38rpx 16rpx 0;
+  padding: 16rpx 16rpx 0;
   width: 533rpx;
   height: 181rpx;
   background: rgba(255,255,255,1);

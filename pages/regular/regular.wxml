@@ -17,6 +17,7 @@
       <image class="power-item" wx:for="{{ power }}" wx:for-index="idx" wx:key="idx" src="https://shiancha.guduokeji.com/lib/regular/power.png"></image>
       <image class="power-item" wx:for="{{ 10 - power }}" wx:for-index="idx" wx:key="idx" src="https://shiancha.guduokeji.com/lib/regular/power_null.png"></image>
     </view>
+    <text class="power-percent">{{ power }}/10</text>
     <view class="gold-wrap">
       <image class="gold-icon" src="https://shiancha.guduokeji.com/lib/regular/gold.png"></image>{{ points }}
     </view>

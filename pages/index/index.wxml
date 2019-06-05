@@ -1,20 +1,20 @@
 <!--index.wxml-->
 <view class="container">
   <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
-  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <button wx:if="{{ !hasUserInfo && canIUse }}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
   <block wx:else>
     <image class="logo" src="https://shiancha.guduokeji.com/lib/home/logo.png"></image>
     <image class="title-img" src="https://shiancha.guduokeji.com/lib/home/title.png"></image>
     <view class="userinfo">
       <image class="user-bg" src="https://shiancha.guduokeji.com/lib/home/user_bg.png"></image>
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text>{{userInfo.nickName}}</text>
+      <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" mode="cover"></image>
+      <text>{{ userInfo.nickName }}</text>
       <image style='margin: 0 18rpx 0 65rpx; width: 23rpx; height: 26rpx;' src="https://shiancha.guduokeji.com/lib/home/gold.png"></image>
-      <text>14</text>
+      <text>{{ userInfo.points }}</text>
       <text style='margin: 0 32rpx; color: #154e9d'>|</text>
       <image style='width: 29rpx; height: 29rpx;' src="https://shiancha.guduokeji.com/lib/home/power.png"></image>
-      <text style='margin: 0 32rpx 0 18rpx;'>8/10</text>
-      <image style='width: 25rpx; height: 25rpx;' src="https://shiancha.guduokeji.com/lib/home/add.png"></image>
+      <text style='margin: 0 32rpx 0 18rpx;'>{{ userInfo.power }}/10</text>
+      <image style='width: 25rpx; height: 25rpx;' src="https://shiancha.guduokeji.com/lib/home/add.png" bindtap="goShare"></image>
     </view>
     <view class="regular-wrapper" bindtap="goRegular">
       <image class="regular-bg" src="https://shiancha.guduokeji.com/lib/home/regular_bg.png"></image>
@@ -73,7 +73,7 @@
       <image class="rules-title-bg" style="top: 407rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image>
       <text class="rules-title" style="top: 418rpx;">专场赛规则</text>
       <text class="rules-desc" style="top: 507rpx;">共300道不重复题目，有答题总时间记录，中间过程可暂停，最多使用10体力值。</text>
-      <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/rules_go.png" alt="" bindtap="hiddenAbout"></image>
+      <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/rules_go.png" alt="" bindtap="goRegular"></image>
       <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenRules"></image>
     </view>
   </view>
@@ -87,7 +87,7 @@
       <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenRules"></image>
     </view>
   </view>
-  <!-- 宝箱 -->
+  <!-- 体力礼包 -->
   <view class="about" wx:if="{{ showTreasure }}">
     <view class="treasure-container">
       <image class="treasure-bg" src="https://shiancha.guduokeji.com/lib/home/treasure_bg.png" alt=""></image>
@@ -96,7 +96,7 @@
       <text class="treasure-tip">体力礼包</text>
       <text class="treasure-add">体力  +3</text>
       <image class="rules-line" src="https://shiancha.guduokeji.com/lib/home/treasure_line.png" alt=""></image>
-      <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/contest_get.png" alt="" bindtap="hiddenAbout"></image>
+      <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/contest_get.png" alt="" bindtap="share"></image>
     </view>
   </view>
 </view>

@@ -51,6 +51,16 @@
   height: 36rpx;
 }
 
+.power-percent {
+  position: absolute;
+  top: 88rpx;
+  left: 526rpx;
+  color: #fff;
+  font-size: 15px;
+  font-family: Adobe Heiti Std R;
+  font-weight: bold;
+}
+
 .gold-wrap {
   position: absolute;
   top: 80rpx;

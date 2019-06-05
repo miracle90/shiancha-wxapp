@@ -5,9 +5,9 @@
     <!-- <image class="avatar" src="https://shiancha.guduokeji.com/lib/record/record_bg.png" mode="scaleToFill"></image> -->
     <view class='title-info'>
       <image class="avatar" src="{{ avatar }}"></image>
-      <view>{{ '大大小小' }}</view>
+      <view>{{ nickname }}</view>
       <image class='info-gold' src='https://shiancha.guduokeji.com/lib/record/record_gold.png'></image>
-      <view>{{ 14 }}</view>
+      <view>{{ points }}</view>
     </view>
   </view>
   <view class='record-wrap'>

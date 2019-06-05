@@ -1,4 +1,5 @@
-// pages/ranking/ranking.js
+import { rankListApi } from '../../utils/api.js'
+
 Page({
 
   /**
@@ -6,20 +7,38 @@ Page({
    */
   data: {
     activeIndex: 1,
-    rankList: [
-      { nickname: 'abceeeeeeee', count: 200, time: '01:10:10', url: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLOvZF344lt6NpsHZfcYVQLqpBsywIhaS6NA8WcXxSBRUNeibRYQhu8uByP4ZuZCeByQMxDcljR5lw/132' },
-      { nickname: 'abc', count: 200, time: '01:10:10', url: 'https://shiancha.guduokeji.com/lib/home/hero_bg.png' },
-      { nickname: 'abc', count: 200, time: '01:10:10', url: 'https://shiancha.guduokeji.com/lib/home/hero_bg.png' },
-      { nickname: 'abc', count: 200, time: '01:10:10', url: 'https://shiancha.guduokeji.com/lib/home/hero_bg.png' },
-      { nickname: 'abc', count: 200, time: '01:10:10', url: 'https://shiancha.guduokeji.com/lib/home/hero_bg.png' }
-    ]
+    rankList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
+    this.getList()
+  },
 
+  getList () {
+    wx.request({
+      url: rankListApi,
+      method: 'POST',
+      data: {
+        nickname: '',
+        type: this.data.activeIndex,
+        page: 1,
+        size: 50
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: res => {
+        let { code, data: { records } } = res.data
+        if (code === 0) {
+          this.setData({
+            rankList: records
+          })
+        }
+      }
+    })
   },
 
   changeIndex (e) {
@@ -27,5 +46,6 @@ Page({
     this.setData({
       activeIndex
     })
+    this.getList()
   }
 })

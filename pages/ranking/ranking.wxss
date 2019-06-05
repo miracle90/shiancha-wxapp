@@ -60,7 +60,7 @@
 }
 
 .list-header .item {
-  flex: 1;
+  /* flex: 1; */
   text-align: center;
   line-height: 69rpx;
   font-size: 15px;
@@ -81,7 +81,7 @@
 }
 
 .list-item view {
-  flex: 1;
+  /* flex: 1; */
   text-align: center;
 }
 
@@ -100,9 +100,15 @@
 }
 
 .user image {
-  margin-right: 9rpx;
+  margin-right: 15rpx;
   width: 68rpx;
   height: 68rpx;
   border-radius: 50%;
   vertical-align: middle;
+}
+
+.item-gold {
+  margin-right: 19rpx;
+  width: 23rpx;
+  height: 26rpx;
 }

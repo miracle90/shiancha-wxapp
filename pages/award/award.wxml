@@ -3,11 +3,11 @@
   <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
   <image class="award-show" src="https://shiancha.guduokeji.com/lib/award/award_show.png"></image>
   <view class='award-data'>
-    你还有{{3}}次抽奖机会
-    <view class='award-gold'><image class='' src='https://shiancha.guduokeji.com/lib/award/award_gold.png'></image>{{14}}</view>
+    你还有{{ prizeCount }}次抽奖机会
+    <view class='award-gold'><image class='' src='https://shiancha.guduokeji.com/lib/award/award_gold.png'></image>{{ points }}</view>
   </view>
   <view class='spin-wrap'>
-    <view class='spin-container'>
+    <view class='spin-container' animation="{{ animationData }}">
       <image src='https://shiancha.guduokeji.com/lib/award/award_spin.png' class='award-spin'></image>
       <text
         style="transform: {{ 'translate3d(-50%, -50%, 0) rotate(' + idx * 60 + 'deg)' }}"
@@ -17,11 +17,13 @@
         wx:for-index="idx"
         wx:key="idx">{{item}}</text>
     </view>
-    <image src='https://shiancha.guduokeji.com/lib/award/award_arrow.png' class='award-arrow'></image>
-    <image src='https://shiancha.guduokeji.com/lib/award/award_draw.png' class='award-draw'></image>
-    <view class='award-num'>{{3}}次机会</view>
+    <view bindtap="start">
+      <image src='https://shiancha.guduokeji.com/lib/award/award_arrow.png' class='award-arrow'></image>
+      <image src='https://shiancha.guduokeji.com/lib/award/award_draw.png' class='award-draw'></image>
+      <view class='award-num'>{{ prizeCount }}次机会</view>
+    </view>
   </view>
-  <view class='award-record'>抽奖记录>></view>
+  <view class='award-record' bindtap="goRecord">抽奖记录>></view>
   <!-- 获取礼物 -->
   <view class="about" wx:if="{{ showGift }}">
     <view class="about-container" style='margin-top: 279rpx; height: 776rpx;'>
@@ -63,7 +65,7 @@
       <view class='out_tips2'>请耐心等待！礼物会送到您身边！</view>
       <view class="answer-wrap">
         <image class="right-btn" style='margin-right: 12rpx;' src="https://shiancha.guduokeji.com/lib/feature/go_home.png"></image>          
-        <image class="right-btn" src="https://shiancha.guduokeji.com/lib/award/award_get.png"></image>          
+        <image class="right-btn" src="https://shiancha.guduokeji.com/lib/new/record.png"></image>          
       </view>
     </view>
   </view>

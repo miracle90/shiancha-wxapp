@@ -44,6 +44,7 @@ Page({
   next () {
     this.setData({
       selectedIndex: '',
+      showSpin: false,
       showRight: false,
       showError: false,
       index: this.data.index + 1
@@ -92,7 +93,6 @@ Page({
             }
           }
           power = Math.min(10, power)
-          power = Math.max(10 - power, power)
           obj['answer'] = answer
           obj['power'] = power
           obj['points'] = points
@@ -130,7 +130,6 @@ Page({
             icon: 'none',
             duration: 2000
           })
-          
         }
       }
     })
