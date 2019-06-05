@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <view class="container">
   <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
-  <button wx:if="{{ !hasUserInfo && canIUse }}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-  <block wx:else>
+  <button wx:if="{{ !hasUserInfo && canIUse }}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="getUserInfo"></button>
+  <block>
     <image class="logo" src="https://shiancha.guduokeji.com/lib/home/logo.png"></image>
     <image class="title-img" src="https://shiancha.guduokeji.com/lib/home/title.png"></image>
     <view class="userinfo">
