@@ -22,7 +22,8 @@ Page({
     // btnSrc: 'https://shiancha.guduokeji.com/lib/home/start.png',
     abouts: '',
     rules: '',
-    heroTip: ''
+    heroTip: '',
+    showAboutNum: 0
   },
   //事件处理函数
   // bindViewTap: function() {
@@ -32,13 +33,16 @@ Page({
   // },
   onLoad: function () {
     this.getContent('hero_post')
+  },
+
+  onShow: function () {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
       this.getData()
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -129,8 +133,13 @@ Page({
             const { superBeforQuestionId, superPower, superPoints } = user
             if (code === 0) {
               wx.setStorageSync('questionId', superBeforQuestionId)
+              if (this.data.showAboutNum === 0) {
+                this.setData({
+                  showContest: superPower === 10 && superPoints === 0,
+                  showAboutNum: 1
+                })
+              }
               this.setData({
-                showContest: superPower === 10 && superPoints === 0,
                 userInfo: { ...this.data.userInfo, ...user }
               })
               app.globalData.userInfo = { ...app.globalData.userInfo, ...this.data.userInfo, ...user }
