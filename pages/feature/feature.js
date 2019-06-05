@@ -128,7 +128,7 @@ Page({
           superPower = Math.min(10, superPower)
           wx.setStorageSync('questionId', id)
           // 答题，开始计时
-          if (!this.timer) this.timeStart(superTime)
+          if (!this.timer) this.timeStart(superTime || '00:00:00')
           this.setData({
             question,
             user,
