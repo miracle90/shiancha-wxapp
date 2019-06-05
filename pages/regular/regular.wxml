@@ -3,9 +3,8 @@
   <block wx:if="{{ !ing }}">
     <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
     <image class="regular-title" src="https://shiancha.guduokeji.com/lib/regular/title.png"></image>
-    <view class="regular-desc">
-      玩家初始体力值为10，答对不扣体力值答错1次扣1体力值每成功答对10题解锁1次幸运转盘，抽取神秘礼品每6分钟自动增加1体力值。
-    </view>
+    <!-- <view class="regular-desc">玩家初始体力值为10，答对不扣体力值答错1次扣1体力值每成功答对10题解锁1次幸运转盘，抽取神秘礼品每6分钟自动增加1体力值。</view> -->
+    <view class="regular-desc">{{ content }}</view>
     <image bindtap="start" class="regular-start" src="https://shiancha.guduokeji.com/lib/regular/start.png"></image>
   </block>
   <!-- 正在答题状态 -->

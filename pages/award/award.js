@@ -9,26 +9,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-    awardList: ['加油还有机会！', '满满体力', '神秘奖品', '加油还有机会！', '满满体力', '神秘奖品'],
+    awardList: ['神秘奖品', '满满体力', '加油还有机会！', '神秘奖品', '满满体力', '加油还有机会！'],
     showSuccess: false,
     showFail: false,
     showMystical: false,
-    showGift: false,
+    showGift: true,
     prizeCount: 0,
     points: 0,
     animationData: null
   },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    this.deg = 0
+    this.commonDeg = 3600
+    this.extraDeg = 0
     this.getData()
   },
 
   // 点击抽奖
   start () {
-    // 先调用接口
+    if (this.ing) return
+    this.ing = true
     wx.request({
       url: awardApi,
       method: 'POST',
@@ -39,38 +43,39 @@ Page({
         'content-type': 'application/json'
       },
       success: res => {
-        const { code, msg } = res.data
-        // if (code === 0) {
-          let deg
+        let { code, msg, type } = res.data
+        if (code === 0) {
+          type = 1
           let animation = wx.createAnimation({
             duration: 6000,
             timingFunction: "ease",
             delay: 0,
             transformOrigin: "50% 54%"
           })
-
-          let type = '2'
-
           // 1 实物奖励    0  180 
           // 2 体力       60  240
           // 3 谢谢参与    120 300
-      
-          deg = 3600 + 120 * (+type - 1)
-
-          animation.rotate(deg).step();
+          this.deg = this.deg + this.commonDeg + this.extraDeg + 120 * (type - 1)
+          this.extraDeg = 360 - 120 * (type - 1)
+          animation.rotate(this.deg).step();
       
           this.setData({
             animationData: animation.export()
           })
-          this.setData({
-            animationData: null
+          setTimeout(() => {
+            this.ing = false
+            this.setData({
+              showGift: type === 1,
+              showMystical: type === 2
+            })
+          }, 6500);
+        } else {
+          wx.showToast({
+            title: msg,
+            icon: 'none',
+            duration: 2000
           })
-        // } else {
-        //   wx.showToast({
-        //     title: msg,
-        //     icon: 'none',
-        //     duration: 2000
-        //   })
+        }  
       }
     })
   },
@@ -109,6 +114,12 @@ Page({
   goRecord: () => {
     wx.navigateTo({
       url: '../record/record'
+    })
+  },
+
+  goRegular: () => {
+    wx.navigateTo({
+      url: '../regular/regular'
     })
   },
 

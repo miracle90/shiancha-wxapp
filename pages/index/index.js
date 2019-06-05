@@ -1,4 +1,4 @@
-import { getOpenidApi, shareApi } from '../../utils/api.js'
+import { getOpenidApi, shareApi, getContentApi } from '../../utils/api.js'
 
 //获取应用实例
 const app = getApp()
@@ -13,7 +13,10 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    btnSrc: 'https://shiancha.guduokeji.com/lib/home/start.png'
+    // btnSrc: 'https://shiancha.guduokeji.com/lib/home/start.png',
+    abouts: '',
+    rules: '',
+    heroTip: ''
   },
   //事件处理函数
   // bindViewTap: function() {
@@ -22,6 +25,7 @@ Page({
   //   })
   // },
   onLoad: function () {
+    this.getContent('hero_post')
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -52,6 +56,52 @@ Page({
       })
     }
   },
+
+  getContent (str) {
+    wx.request({
+      url: getContentApi,
+      method: 'POST',
+      data: {
+        code: str
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: res => {
+        const { code, value, msg } = res.data
+        if (code === 0) {
+          switch (str) {
+            case 'abouts':
+              this.setData({
+                abouts: value,
+                showAbout: true
+              })
+              break
+            case 'rules':
+              this.setData({
+                rules: value,
+                showRules: true
+              })
+              break
+            case 'hero_post':
+              this.setData({
+                heroTip: value
+              })
+              break
+            default:
+              break
+          }
+        } else {
+          wx.showToast({
+            title: msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+  },
+
   getData () {
     wx.login({
       success: res => {
@@ -101,9 +151,9 @@ Page({
     })
   },
   goRegular () {
-    this.setData({
-      btnSrc: 'https://shiancha.guduokeji.com/lib/new/start.png'
-    })
+    // this.setData({
+    //   btnSrc: 'https://shiancha.guduokeji.com/lib/new/start.png'
+    // })
     wx.navigateTo({
       url: '../regular/regular'
     })
@@ -119,19 +169,20 @@ Page({
     })
   },
   showAbout () {
-    this.setData({
-      showAbout: true
-    })
+    this.getContent('abouts')
   },
   hiddenAbout () {
     this.setData({
       showAbout: false
     })
   },
-  showRules () {
+  hiddenContest () {
     this.setData({
-      showRules: true
+      showContest: false
     })
+  },
+  showRules () {
+    this.getContent('rules')
   },
   hiddenRules () {
     this.setData({

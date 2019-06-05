@@ -3,8 +3,9 @@
   <block wx:if="{{ !ing }}">
     <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
     <image class="regular-title" src="https://shiancha.guduokeji.com/lib/feature/feature.png"></image>
-    <view class="regular-desc">在专场赛中，你会获得10个专场体力值来助你完成比赛。</view>
-    <view class="regular-desc" style='margin-top: 0;'>比赛一共300道不重复题目，答题时间会被记录，中间退出时间暂停，专场体力值用完或答完300道题即可结束比赛。</view>
+    <view class="regular-desc">{{ content }}</view>
+    <!-- <view class="regular-desc">在专场赛中，你会获得10个专场体力值来助你完成比赛。</view> -->
+    <!-- <view class="regular-desc" style='margin-top: 0;'>比赛一共300道不重复题目，答题时间会被记录，中间退出时间暂停，专场体力值用完或答完300道题即可结束比赛。</view> -->
     <image bindtap="start" class="regular-start" src="https://shiancha.guduokeji.com/lib/regular/start.png"></image>
     <!-- 专场赛还未开始提示 -->
     <view class="about" wx:if="{{ showTips }}">

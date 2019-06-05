@@ -23,8 +23,8 @@
           wx:for-index="idx"
           wx:key="idx"
           class='list-item'>
-      <view style='width: 240rpx;'>{{item.gift}}</view>
-      <view style='flex: 1; color: #FFED7FFF;'>{{item.time}}</view>
+      <view style='width: 240rpx;'>{{item.prizeName}}</view>
+      <view style='flex: 1; color: #FFED7FFF;'>{{item.createTime}}</view>
     </view>
   </view>
 </view>
