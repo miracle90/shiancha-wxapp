@@ -31,13 +31,13 @@
       <image class="about-title" src="https://shiancha.guduokeji.com/lib/award/award_success.png" style='top: -19%'></image>
       <view class='out_tips3'>恭喜你获得神秘礼物一份</view>
       <view class='form-item' style='top: 256rpx;'>
-        <text>姓名</text><input />
+        <text>姓名</text><input bindinput="inputName" />
       </view>
       <view class='form-item' style='top: 375rpx;'>
-        <text>手机号</text><input />
+        <text>手机号</text><input bindinput="inputPhone" />
       </view>
       <view class='form-item' style='top: 494rpx;'>
-        <text>收货地址</text><input />
+        <text>收货地址</text><input bindinput="inputAddr" />
       </view>
       <view class="answer-wrap" style='top: 638rpx;'>
         <image bindtap="get" class="right-btn" src="https://shiancha.guduokeji.com/lib/award/get.png"></image>          
@@ -64,8 +64,8 @@
       <view class='out_tips1'>领取成功</view>
       <view class='out_tips2'>请耐心等待！礼物会送到您身边！</view>
       <view class="answer-wrap">
-        <image class="right-btn" style='margin-right: 12rpx;' src="https://shiancha.guduokeji.com/lib/feature/go_home.png"></image>          
-        <image class="right-btn" src="https://shiancha.guduokeji.com/lib/new/record.png"></image>          
+        <image bindtap="goIndex" class="right-btn" style='margin-right: 12rpx;' src="https://shiancha.guduokeji.com/lib/feature/go_home.png"></image>          
+        <image bindtap="goRecord" class="right-btn" src="https://shiancha.guduokeji.com/lib/new/record.png"></image>          
       </view>
     </view>
   </view>
