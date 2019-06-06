@@ -7,7 +7,7 @@
     <view class='award-gold'><image class='' src='https://shiancha.guduokeji.com/lib/award/award_gold.png'></image>{{ points }}</view>
   </view>
   <view class='spin-wrap'>
-    <view class='spin-container' animation="{{ animationData }}">
+    <view class='spin-container'>
       <image src='https://shiancha.guduokeji.com/lib/award/award_spin.png' class='award-spin'></image>
       <text
         style="transform: {{ 'translate3d(-50%, -50%, 0) rotate(' + idx * 60 + 'deg)' }}"
@@ -18,7 +18,7 @@
         wx:key="idx">{{item}}</text>
     </view>
     <view bindtap="start">
-      <image src='https://shiancha.guduokeji.com/lib/award/award_arrow.png' class='award-arrow'></image>
+      <image animation="{{ animationData }}" src='https://shiancha.guduokeji.com/lib/award/award_arrow.png' class='award-arrow'></image>
       <image src='https://shiancha.guduokeji.com/lib/award/award_draw.png' class='award-draw'></image>
       <view class='award-num'>{{ prizeCount }}次机会</view>
     </view>

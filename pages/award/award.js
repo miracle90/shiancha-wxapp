@@ -109,6 +109,25 @@ Page({
 
   // 点击抽奖
   start () {
+    // let type = 1
+    // let animation = wx.createAnimation({
+    //   duration: 6000,
+    //   timingFunction: "ease",
+    //   delay: 0,
+    //   transformOrigin: "50% 64%"
+    // })
+    // // 1 实物奖励    0  180 
+    // // 2 体力       60  240
+    // // 3 谢谢参与    120 300
+    // this.deg = this.deg + this.commonDeg + this.extraDeg + 120 * (type - 1)
+    // this.extraDeg = 360 - 120 * (type - 1)
+    // animation.rotate(this.deg).step();
+
+    // this.setData({
+    //   // prizeCount,
+    //   animationData: animation.export()
+    // })
+    // return;
     if (this.ing) return
     this.ing = true
     wx.request({
@@ -122,18 +141,24 @@ Page({
       },
       success: res => {
         let { code, type, prizeCount } = res.data
+        type = 2
         if (code === 0) {
           let animation = wx.createAnimation({
             duration: 6000,
             timingFunction: "ease",
             delay: 0,
-            transformOrigin: "50% 54%"
+            transformOrigin: "50% 64%"
           })
           // 1 实物奖励    0  180 
           // 2 体力       60  240
           // 3 谢谢参与    120 300
-          this.deg = this.deg + this.commonDeg + this.extraDeg + 120 * (type - 1)
-          this.extraDeg = 360 - 120 * (type - 1)
+          // 0度的偏移角度
+          const d = 60 * (type - 1) + (Math.random() > 0.5 ? 180 : 0)
+          // 总角度
+          this.deg = this.deg + this.commonDeg + this.extraDeg + d
+          // 补满360
+          this.extraDeg = 360 - d
+          // step()
           animation.rotate(this.deg).step();
       
           this.setData({
@@ -146,7 +171,7 @@ Page({
               showGift: type === 1,
               showMystical: type === 2
             })
-          }, 6500);
+          }, 6000);
         } else {
           this.ing = false
           this.setData({

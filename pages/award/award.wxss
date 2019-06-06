@@ -68,9 +68,9 @@
 
 .award-arrow {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate3d(-50%, -50%, 0);
+  left: 36%;
+  top: 31%;
+  /* transform: translate3d(-50%, -50%, 0); */
   height: 222rpx;
   width: 160rpx;
 }
@@ -165,7 +165,7 @@
   top: 195rpx;
   left: 50%;
   transform: translate3d(-50%, 0, 0);
-  width: 280rpx;
+  width: 100%;
   z-index: 5;
   font-family: PingFangSC-Regular;
   font-weight: 400;
@@ -222,7 +222,7 @@
 
 .form-item text {
   margin-right: 38rpx;
-  width: 136rpx;
+  width: 150rpx;
   text-align: justify;
 }
 

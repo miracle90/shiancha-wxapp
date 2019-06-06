@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/record/record",
     "pages/award/award",
+    "pages/record/record",
     "pages/ranking/ranking",
     "pages/regular/regular",
     "pages/feature/feature"
