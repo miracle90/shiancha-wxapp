@@ -1,4 +1,4 @@
-import { getOpenidApi, shareApi, getContentApi } from '../../utils/api.js'
+import { getOpenidApi, shareApi, getContentApi, checkQualifiApi } from '../../utils/api.js'
 
 //获取应用实例
 const app = getApp()
@@ -10,6 +10,7 @@ Page({
     showRules: false,
     showContest: false,
     showTreasure: false,
+    showTips: false,
     userInfo: {
       url: 'https://shiancha.guduokeji.com/lib/new/logo.png',
       points: 0,
@@ -34,6 +35,7 @@ Page({
   onLoad: function () {
     this.getContent('hero_post')
   },
+  
 
   onShow: function () {
     if (app.globalData.userInfo) {
@@ -175,13 +177,51 @@ Page({
       url: '../ranking/ranking'
     })
   },
+  hiddenTips () {
+    this.setData({
+      showTips: false
+    })
+  },
   goRegular () {
     // this.setData({
     //   btnSrc: 'https://shiancha.guduokeji.com/lib/new/start.png'
     // })
-    wx.navigateTo({
-      url: '../regular/regular'
+    this.userId = app.globalData.userInfo.id
+    wx.request({
+      url: checkQualifiApi,
+      method: 'POST',
+      data: {
+        userId: this.userId
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: res => {
+        let { code, status } = res.data
+        if (code === 0) {
+          // 1 时间还未开始 
+          // 2 活动已经结束
+          // 3 体力耗尽或者答题结束
+          // 0 可以开始专题赛
+          // if (status === 3 || status === 2) {
+          //   this.setData({
+          //     showEnd: true
+          //   })
+          // } else 
+          if (status === 1) {
+            this.setData({
+              showTips: true
+            })
+          } else {
+            // this.answer()
+            wx.navigateTo({
+              url: '../regular/regular'
+            })
+          }
+        }
+      }
     })
+    
   },
   goFeature () {
     wx.navigateTo({

@@ -104,4 +104,22 @@
       <button class="share-btn" open-type="share" plain="true"></button>
     </view>
   </view>
+  <!-- 专场赛还未开始提示 -->
+  <view class="about" wx:if="{{ showTips }}">
+    <view class="about-container" style='margin-top: 198rpx; height: 730rpx;'>
+      <image class="about-bg" src="https://shiancha.guduokeji.com/lib/regular/right_bg.png" alt=""></image>
+      <image class="about-title" src="https://shiancha.guduokeji.com/lib/feature/tips_top.png" alt=""></image>
+      <text class="about-about">专场赛</text>
+      <view class='tips_1'>专场赛将于<text style="color: #FFFC00FF;">6月25-26日</text>正式 开启，开启后持有英雄帖的 玩家可以进入专场赛环节进 行比赛，专场赛将会有更多 超值奖励等你来拿！</view>
+      <view class='tips_1' style="top: 408rpx; color: #FFFC00FF; text-align: center;">加油哦！</view>
+      <image class="right-blank" style="top: 513rpx;" src="https://shiancha.guduokeji.com/lib/regular/blank.png"></image>
+      <view class="answer-wrap" style="top: 550rpx;">
+        <!-- <view style='margin-top: 33rpx;'> -->
+          <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_rank.png" bindtap="goRank" style="margin-right: 12rpx;"></image>          
+          <image class="right-btn" src="https://shiancha.guduokeji.com/lib/feature/go_regular.png" bindtap="goRegular"></image>          
+        <!-- </view> -->
+      </view>
+      <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenTips"></image>
+    </view>
+  </view>
 </view>

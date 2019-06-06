@@ -18,7 +18,7 @@ Page({
     showSuccess: false,
     selectedIndex: '',
     superPower: 10,
-    index: 1,
+    // index: 1,
     question: {},
     duration: '00:00:00',
     content: ''
@@ -185,8 +185,8 @@ Page({
     this.setData({
       selectedIndex: '',
       showRight: false,
-      showError: false,
-      index: this.data.index + 1
+      showError: false
+      // index: this.data.index + 1
     })
     this.answer()
   },
@@ -235,7 +235,7 @@ Page({
           obj['selectedIndex'] = ''
           obj['superPower'] = superPower
           obj['user'] = user
-          obj['index'] = this.data.index + 1
+          // obj['index'] = this.data.index + 1
           this.setData(obj)
         }
 

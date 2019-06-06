@@ -14,6 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    this.page = 1
     this.getList()
   },
 
@@ -24,8 +25,8 @@ Page({
       data: {
         nickname: '',
         type: this.data.activeIndex,
-        page: 1,
-        size: 50
+        page: this.page,
+        size: 2
       },
       header: {
         'content-type': 'application/json'
@@ -34,7 +35,7 @@ Page({
         let { code, data: { records } } = res.data
         if (code === 0) {
           this.setData({
-            rankList: records
+            rankList: [...this.data.rankList, ...records]
           })
         }
       }
@@ -44,8 +45,14 @@ Page({
   changeIndex (e) {
     const activeIndex = +e.currentTarget.dataset.index
     this.setData({
-      activeIndex
+      activeIndex,
+      rankList: []
     })
+    this.getList()
+  },
+
+  onReachBottom: function () {
+    this.page = this.page + 1
     this.getList()
   }
 })

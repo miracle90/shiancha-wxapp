@@ -141,7 +141,6 @@ Page({
       },
       success: res => {
         let { code, type, prizeCount } = res.data
-        type = 2
         if (code === 0) {
           let animation = wx.createAnimation({
             duration: 6000,

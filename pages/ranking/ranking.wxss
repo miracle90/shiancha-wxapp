@@ -48,8 +48,10 @@
 .list {
   margin-top: 33rpx;
   width: 666rpx;
-  height: 818rpx;
+  height: 868rpx;
   background: #fff;
+  box-sizing: border-box;
+  overflow-y: scroll;
 }
 
 .list-header {
