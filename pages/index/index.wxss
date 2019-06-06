@@ -368,3 +368,41 @@
 button[plain] {
   border: 0;
 }
+
+.tips_1 {
+  position: absolute;
+  top: 117rpx;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: 421rpx;
+  font-size: 17px;
+  font-family: SourceHanSansCN-Regular;
+  color: rgba(255,255,255,1);
+  line-height: 58rpx;
+  z-index: 5;
+}
+
+.right-blank {
+  position: absolute;
+  top: 285rpx;
+  left: 49rpx;
+  width: 526rpx;
+  height: 2rpx;
+  z-index: 5;
+}
+
+.answer-wrap {
+  position: absolute;
+  top: 285rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  padding: 20rpx 46rpx 0;
+  z-index: 5;
+  text-align: center;
+}
+
+.right-btn {
+  width: 258rpx;
+  height: 97rpx;
+}

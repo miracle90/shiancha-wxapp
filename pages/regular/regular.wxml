@@ -25,7 +25,7 @@
     <image class="question-logo" src="https://shiancha.guduokeji.com/lib/regular/logo.png"></image>
     <image class="question-blank" src="https://shiancha.guduokeji.com/lib/regular/blank.png"></image>
     <view class="quest-wrap">
-      <view class="quest-index">- 第 {{ index }} 题 -</view>
+      <view class="quest-index">- 第 {{ questionCount }} 题 -</view>
       <view class="quest-desc">{{ question.title }}</view>
       <view class="quest-item {{ selectedIndex === '1' ? 'active' : ''}}" bindtap="selected" data-index="1">A. {{ question.firstAnswer }}</view>
       <view class="quest-item {{ selectedIndex === '2' ? 'active' : ''}}" bindtap="selected" data-index="2">B. {{ question.secondAnswer }}</view>

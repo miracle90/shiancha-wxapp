@@ -18,7 +18,7 @@ Page({
     power: 10,
     iconPower: 10,
     points: 0,
-    index: 1,
+    questionCount: 1,
     question: {},
     answer: {},
     content: ''
@@ -75,8 +75,8 @@ Page({
       selectedIndex: '',
       showSpin: false,
       showRight: false,
-      showError: false,
-      index: this.data.index + 1
+      showError: false
+      // index: this.data.index + 1
     })
     this.start()
   },
@@ -146,13 +146,14 @@ Page({
       success: res => {
         let { code, question, msg } = res.data
         if (code === 0) {
-          let { power, points } = question
+          let { power, points, questionCount } = question
           let iconPower = Math.min(10, power)
           this.setData({
             question,
             power,
             iconPower,
             points,
+            questionCount,
             ing: true
           })
         } else {

@@ -18,7 +18,7 @@ Page({
     showSuccess: false,
     selectedIndex: '',
     superPower: 10,
-    index: 1,
+    // index: 1,
     question: {},
     duration: '00:00:00',
     content: '',

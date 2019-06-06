@@ -15,6 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    this.page = 1
     this.getList()
   },
 
@@ -40,7 +41,7 @@ Page({
           this.setData({
             rankList
           })
-   rankList     }
+        }
       }
     })
   },
