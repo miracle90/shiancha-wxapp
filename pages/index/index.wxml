@@ -68,12 +68,12 @@
       <image class="about-star" src="https://shiancha.guduokeji.com/lib/home/about_star.png" alt=""></image>
       <image class="about-title" src="https://shiancha.guduokeji.com/lib/home/rules_title.png" alt=""></image>
       <text class="about-about" style="color: rgba(152,52,255,1);">活动规则</text>
-      <!-- <image class="rules-title-bg" style="top: 93rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image> -->
-      <!-- <text class="rules-title" style="top: 104rpx;">常规赛规则</text> -->
-      <!-- <image class="rules-title-bg" style="top: 407rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image> -->
+      <image class="rules-title-bg" style="top: 93rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image>
+      <text class="rules-title" style="top: 106rpx;">常规赛规则</text>
+      <image class="rules-title-bg" style="top: 407rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image>
       <text class="rules-desc" style="top: 193rpx;">{{ rules }}</text>
-      <!-- <text class="rules-title" style="top: 418rpx;">专场赛规则</text> -->
-      <!-- <text class="rules-desc" style="top: 507rpx;">共300道不重复题目，有答题总时间记录，中间过程可暂停，最多使用10体力值。</text> -->
+      <text class="rules-title" style="top: 418rpx;">专场赛规则</text>
+      <text class="rules-desc" style="top: 507rpx;">{{ majorRules }}</text>
       <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/rules_go.png" alt="" bindtap="goRegular"></image>
       <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenRules"></image>
     </view>

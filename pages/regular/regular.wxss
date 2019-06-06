@@ -22,7 +22,10 @@
 }
 
 .regular-start {
-  margin-top: 228rpx;
+  position: absolute;
+  top: 900rpx;
+  left: 50%;
+  margin-left: -173.5rpx;
   width: 347rpx;
   height: 121rpx;
 }
@@ -273,17 +276,16 @@
   width: 209rpx;
   height: 57rpx;
   line-height: 57rpx;
-  background: rgba(66,140,251,1);
+  background: #428CFB;
   font-size: 15px;
   font-family: SourceHanSansCN-Regular;
   font-weight: 400;
-  color: rgba(61,237,144,1);
-  opacity: 0.5;
+  color: #3DED90;
 }
 
 .right-user {
   position: absolute;
-  top: 40rpx;
+  top: 32rpx;
   right: 46rpx;
   font-size: 14px;
   font-family: SourceHanSansCN-Regular;

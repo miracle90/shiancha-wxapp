@@ -1,6 +1,6 @@
 <!--pages/award/award.wxml-->
 <view class="container">
-  <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
+  <image class="header-bg" src="https://shiancha.guduokeji.com/lib/award/record_bg_new.png" mode="scaleToFill"></image>
   <image class="award-show" src="https://shiancha.guduokeji.com/lib/award/award_show.png"></image>
   <view class='award-data'>
     你还有{{ prizeCount }}次抽奖机会

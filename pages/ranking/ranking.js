@@ -7,7 +7,8 @@ Page({
    */
   data: {
     activeIndex: 1,
-    rankList: []
+    rankList: [],
+    page: 1
   },
 
   /**
@@ -24,8 +25,8 @@ Page({
       data: {
         nickname: '',
         type: this.data.activeIndex,
-        page: 1,
-        size: 50
+        page: this.data.page,
+        size: 10
       },
       header: {
         'content-type': 'application/json'
@@ -33,10 +34,13 @@ Page({
       success: res => {
         let { code, data: { records } } = res.data
         if (code === 0) {
+          const rankList = this.data.rankList
+          rankList.push(...records)
+          console.log(rankList)
           this.setData({
-            rankList: records
+            rankList
           })
-        }
+   rankList     }
       }
     })
   },
@@ -44,8 +48,19 @@ Page({
   changeIndex (e) {
     const activeIndex = +e.currentTarget.dataset.index
     this.setData({
-      activeIndex
+      activeIndex,
+      rankList: [],
+      page: 1
     })
     this.getList()
+  },
+
+  scrolltolower () {
+    const page = this.data.page + 1
+    this.setData({
+      page
+    }, () => {
+      this.getList()
+    })
   }
 })

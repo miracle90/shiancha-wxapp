@@ -1,7 +1,7 @@
 <!--pages/feature/feature.wxml-->
 <view class="container">
   <block wx:if="{{ !ing }}">
-    <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
+    <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/special_bg.png" mode="scaleToFill"></image>
     <image class="regular-title" src="https://shiancha.guduokeji.com/lib/feature/feature.png"></image>
     <view class="regular-desc">{{ content }}</view>
     <!-- <view class="regular-desc">在专场赛中，你会获得10个专场体力值来助你完成比赛。</view> -->
@@ -9,7 +9,7 @@
     <image bindtap="start" class="regular-start" src="https://shiancha.guduokeji.com/lib/regular/start.png"></image>
     <!-- 专场赛还未开始提示 -->
     <view class="about" wx:if="{{ showTips }}">
-      <view class="about-container" style='margin-top: 198rpx; height: 730rpx;'>
+      <view class="about-container" style='margin-top: 260rpx; height: 730rpx;'>
         <image class="about-bg" src="https://shiancha.guduokeji.com/lib/regular/right_bg.png" alt=""></image>
         <image class="about-title" src="https://shiancha.guduokeji.com/lib/feature/tips_top.png" alt=""></image>
         <text class="about-about">专场赛</text>
@@ -43,15 +43,15 @@
     </view>
   </block>
   <block wx:else>
-    <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/bg.png" mode="scaleToFill"></image>
+    <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/special_bg.png" mode="scaleToFill"></image>
     <view class="percent">
       <image class="percent-bg" src="https://shiancha.guduokeji.com/lib/regular/percent.png"></image>
       <image class="power-item" wx:for="{{ superPower }}" wx:for-index="idx" wx:key="idx" src="https://shiancha.guduokeji.com/lib/regular/power.png"></image>
       <image class="power-item" wx:for="{{ 10 - user.superPower }}" wx:for-index="idx" wx:key="idx" src="https://shiancha.guduokeji.com/lib/regular/power_null.png"></image>
     </view>
-    <view class="gold-wrap">
+    <!-- <view class="gold-wrap">
       <image class="gold-icon" src="https://shiancha.guduokeji.com/lib/regular/gold.png"></image>{{ user.superPoints }}
-    </view>
+    </view> -->
     <!-- <view class="gold-wrap">
       <image class="gold-icon" src="https://shiancha.guduokeji.com/lib/regular/gold.png"></image>14
     </view> -->
@@ -65,7 +65,7 @@
     <image class="question-logo" src="https://shiancha.guduokeji.com/lib/regular/logo.png"></image>
     <image class="question-blank" src="https://shiancha.guduokeji.com/lib/regular/blank.png"></image>
     <view class="quest-wrap">
-      <view class="quest-index">- 第 {{ index }} 题 -</view>
+      <view class="quest-index">- {{ index }} / {{ questionCount }} -</view>
       <view class="quest-desc">{{ question.title }}</view>
       <view class="quest-item {{ selectedIndex === '1' ? 'active' : ''}}" bindtap="selected" data-index="1">A. {{ question.firstAnswer }}</view>
       <view class="quest-item {{ selectedIndex === '2' ? 'active' : ''}}" bindtap="selected" data-index="2">B. {{ question.secondAnswer }}</view>

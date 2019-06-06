@@ -22,6 +22,7 @@ Page({
     // btnSrc: 'https://shiancha.guduokeji.com/lib/home/start.png',
     abouts: '',
     rules: '',
+    majorRules: '',
     heroTip: '',
     showAboutNum: 0
   },
@@ -87,9 +88,15 @@ Page({
                 showAbout: true
               })
               break
-            case 'rules':
+            case 'regular_season_introduction':
               this.setData({
                 rules: value,
+                showRules: true
+              })
+              break
+            case 'special_competition_introduction':
+              this.setData({
+                majorRules: value,
                 showRules: true
               })
               break
@@ -212,7 +219,8 @@ Page({
     })
   },
   showRules () {
-    this.getContent('rules')
+    this.getContent('regular_season_introduction')
+    this.getContent('special_competition_introduction')
   },
   hiddenRules () {
     this.setData({

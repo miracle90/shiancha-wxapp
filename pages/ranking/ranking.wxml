@@ -13,30 +13,33 @@
       专场赛
     </view>
   </view>
-  <view class="list" style="padding-top: {{ activeIndex === 1 ? '69rpx' : '0' }}">
+  <view class="list" style="padding-top: 69rpx">
     <view wx:if="{{ activeIndex === 2 }}" class="list-header">
       <view class="item" style="width: 140rpx;">名次</view>
       <view class="item" style="flex: 1;">昵称</view>
       <view class="item" style="width: 140rpx;">答对</view>
       <view class="item" style="flex: 1;">用时</view>
     </view>
-    <view class="list-item" wx:for="{{ rankList }}" wx:for-item="item" wx:for-index="idx" wx:key="idx">
-      <view class="index" style="width: 140rpx;">
-        <image wx:if="{{ idx === 0 }}" src="https://shiancha.guduokeji.com/lib/ranking/first.png"></image>
-        <image wx:elif="{{ idx === 1 }}" src="https://shiancha.guduokeji.com/lib/ranking/second.png"></image>
-        <image wx:elif="{{ idx === 2 }}" src="https://shiancha.guduokeji.com/lib/ranking/third.png"></image>
-        <text wx:else>{{ idx + 1 }}</text>
+    <scroll-view scroll-y="{{ true }}" class="list-view" bindscrolltolower="scrolltolower">
+      <view class="list-item" wx:for="{{ rankList }}" wx:for-item="item" wx:for-index="idx" wx:key="idx">
+        <view class="index" style="width: 140rpx;">
+          <image wx:if="{{ idx === 0 }}" src="https://shiancha.guduokeji.com/lib/ranking/first.png"></image>
+          <image wx:elif="{{ idx === 1 }}" src="https://shiancha.guduokeji.com/lib/ranking/second.png"></image>
+          <image wx:elif="{{ idx === 2 }}" src="https://shiancha.guduokeji.com/lib/ranking/third.png"></image>
+          <text wx:else>{{ idx + 1 }}</text>
+        </view>
+        <view class="user" style="flex: 1; text-align: left;">
+          <image src="{{item.url}}"></image>{{item.nickname}}
+        </view>
+        <block wx:if="{{ activeIndex === 2 }}">
+          <view style="width: 140rpx;">{{item.superPoints}}</view>
+          <view style="flex: 1;">{{item.superTime}}</view>
+        </block>
+        <block wx:else>
+          <view style="flex: 1;">
+            <image class="item-gold" src="https://shiancha.guduokeji.com/lib/home/gold.png"></image>{{item.points}}</view>
+        </block>
       </view>
-      <view class="user" style="flex: 1; text-align: left;">
-        <image src="{{item.url}}"></image>{{item.nickname}}
-      </view>
-      <block wx:if="{{ activeIndex === 2 }}">
-        <view style="width: 140rpx;">{{item.superPoints}}</view>
-        <view style="flex: 1;">{{item.superTime}}</view>
-      </block>
-      <block wx:else>
-        <view style="flex: 1;"><image class="item-gold" src="https://shiancha.guduokeji.com/lib/home/gold.png"></image>{{item.points}}</view>
-      </block>
-    </view>
+    </scroll-view>
   </view>
 </view>

@@ -21,7 +21,8 @@ Page({
     index: 1,
     question: {},
     duration: '00:00:00',
-    content: ''
+    content: '',
+    questionCount: 0
   },
 
   /**
@@ -113,7 +114,7 @@ Page({
         'content-type': 'application/json'
       },
       success: res => {
-        let { code, question, user, msg } = res.data
+        let { code, question, user, msg, questionCount } = res.data
         if (code === 0) {
           // 闯关成功
           if (question === null) {
@@ -124,7 +125,7 @@ Page({
             return;
           }
           let { id } = question
-          let { superPower, superTime } = user
+          let { superPower, superTime, superPoints, superError } = user
           superPower = Math.min(10, superPower)
           wx.setStorageSync('questionId', id)
           // 答题，开始计时
@@ -133,7 +134,9 @@ Page({
             question,
             user,
             superPower,
-            ing: true
+            ing: true,
+            questionCount,
+            index: superPoints + superError + 1
           })
         } else {
           wx.showToast({
@@ -185,8 +188,7 @@ Page({
     this.setData({
       selectedIndex: '',
       showRight: false,
-      showError: false,
-      index: this.data.index + 1
+      showError: false
     })
     this.answer()
   },
@@ -235,7 +237,6 @@ Page({
           obj['selectedIndex'] = ''
           obj['superPower'] = superPower
           obj['user'] = user
-          obj['index'] = this.data.index + 1
           this.setData(obj)
         }
 

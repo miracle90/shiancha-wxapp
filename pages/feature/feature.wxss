@@ -293,7 +293,6 @@
   font-family: SourceHanSansCN-Regular;
   font-weight: 400;
   color: rgba(61,237,144,1);
-  opacity: 0.5;
 }
 
 .right-user {
