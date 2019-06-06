@@ -37,3 +37,6 @@ export const getContentApi = baseUrl + '/main/content/getContent'
 
 // 领取奖品
 export const getGiftApi = baseUrl + '/main/user/insertPrizeRecord'
+
+// 首页领取奖品
+export const insertPrizeRecordForSpecial = baseUrl + '/main/user/insertPrizeRecordForSpecial'

@@ -122,4 +122,26 @@
       <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenTips"></image>
     </view>
   </view>
+
+     <!-- 获取礼物 -->
+  <view class="about"  wx:if="{{ isReward === 1 }}">
+    <view class="about-container" style='margin-top: 279rpx; height: 776rpx;'>
+      <image class="about-bg" src="https://shiancha.guduokeji.com/lib/award/award_pop_bg.png" alt=""></image>
+      <image class="about-title" src="https://shiancha.guduokeji.com/lib/award/award_success.png" style='top: -19%'></image>
+      <view class='out_tips3'>恭喜获得专题赛神秘奖品</view>
+      <view class='form-item' style='top: 256rpx;'>
+        <text>姓名</text><input bindinput="inputName" />
+      </view>
+      <view class='form-item' style='top: 375rpx;'>
+        <text>手机号</text><input bindinput="inputPhone" maxlength="11" />
+      </view>
+      <view class='form-item' style='top: 494rpx;'>
+        <text>收货地址</text><input bindinput="inputAddr" />
+      </view>
+      <view class="answer-wrap" style='top: 638rpx;'>
+        <image bindtap="get" class="right-btn" src="https://shiancha.guduokeji.com/lib/award/get.png"></image>  
+      </view>
+      <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="closeAbout"></image>
+    </view>
+  </view>
 </view>

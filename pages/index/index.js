@@ -1,4 +1,4 @@
-import { getOpenidApi, shareApi, getContentApi, checkQualifiApi } from '../../utils/api.js'
+import { getOpenidApi, shareApi, getContentApi, checkQualifiApi, insertPrizeRecordForSpecial } from '../../utils/api.js'
 
 //获取应用实例
 const app = getApp()
@@ -25,7 +25,8 @@ Page({
     rules: '',
     majorRules: '',
     heroTip: '',
-    showAboutNum: 0
+    showAboutNum: 0,
+    isReward: 0
   },
   //事件处理函数
   // bindViewTap: function() {
@@ -139,13 +140,14 @@ Page({
           },
           success: res => {
             const { code, user } = res.data
-            const { superBeforQuestionId, superPower, superPoints } = user
+            const { superBeforQuestionId, superPower, superPoints, isReward } = user
             if (code === 0) {
               wx.setStorageSync('questionId', superBeforQuestionId)
               if (this.data.showAboutNum === 0) {
                 this.setData({
                   showContest: superPower === 10 && superPoints === 0,
-                  showAboutNum: 1
+                  showAboutNum: 1,
+                  isReward
                 })
               }
               this.setData({
@@ -276,6 +278,68 @@ Page({
       })
       this.getData()
     }
+  },
+  inputName(e) {
+    this.setData({
+      userName: e.detail.value
+    })
+  },
+
+  inputPhone(e) {
+    this.setData({
+      userPhone: e.detail.value
+    })
+  },
+
+  inputAddr(e) {
+    this.setData({
+      userAddr: e.detail.value
+    })
+  },
+
+  get() {
+    let data = {}
+    let { userName, userPhone, userAddr } = this.data
+    if (!userName || !userPhone || !(/^1\d{10}$/.test(userPhone)) || !userAddr) {
+      wx.showToast({
+        title: '请填写完整信息',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    data = {
+      userId: app.globalData.userInfo.id,
+      userName,
+      userPhone,
+      userAddr
+    }
+    wx.request({
+      url: insertPrizeRecordForSpecial,
+      method: 'POST',
+      data,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: res => {
+        const { code } = res.data
+        if (code === 0) {
+          this.setData({
+            isReward: 0
+          })
+          wx.showToast({
+            title: '操作成功',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+  },
+  closeAbout () {
+    this.setData({
+      isReward: 0
+    })
   },
   /**
    * 用户点击右上角分享

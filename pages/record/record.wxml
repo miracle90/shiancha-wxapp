@@ -18,14 +18,16 @@
       <view style='width: 240rpx;'>礼品</view>
       <view style='flex: 1;'>时间</view>
     </view>
-    <view wx:for="{{ recordList }}"
-          wx:for-item="item"
-          wx:for-index="idx"
-          wx:key="idx"
-          class='list-item'>
-      <view style='width: 240rpx;'>{{item.prizeName}}</view>
-      <view style='flex: 1; color: #FFED7FFF;'>{{item.createTime}}</view>
-    </view>
+    <scroll-view scroll-y="{{ true }}" class="list-view">
+      <view wx:for="{{ recordList }}"
+        wx:for-item="item"
+        wx:for-index="idx"
+        wx:key="idx"
+        class='list-item'>
+        <view style='width: 240rpx;'>{{item.prizeName}}</view>
+        <view style='flex: 1; color: #FFED7FFF;'>{{item.createTime}}</view>
+      </view>
+    </scroll-view>
   </view>
 </view>
 
