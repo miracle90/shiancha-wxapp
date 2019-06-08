@@ -192,45 +192,9 @@ Page({
     })
   },
   goRegular () {
-    // this.setData({
-    //   btnSrc: 'https://shiancha.guduokeji.com/lib/new/start.png'
-    // })
-    this.userId = app.globalData.userInfo.id
-    wx.request({
-      url: checkQualifiApi,
-      method: 'POST',
-      data: {
-        userId: this.userId
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      success: res => {
-        let { code, status } = res.data
-        if (code === 0) {
-          // 1 时间还未开始 
-          // 2 活动已经结束
-          // 3 体力耗尽或者答题结束
-          // 0 可以开始专题赛
-          // if (status === 3 || status === 2) {
-          //   this.setData({
-          //     showEnd: true
-          //   })
-          // } else 
-          if (status === 1) {
-            this.setData({
-              showTips: true
-            })
-          } else {
-            // this.answer()
-            wx.navigateTo({
-              url: '../regular/regular'
-            })
-          }
-        }
-      }
+    wx.navigateTo({
+      url: '../regular/regular'
     })
-    
   },
   goFeature () {
     wx.navigateTo({
