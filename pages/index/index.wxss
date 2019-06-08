@@ -408,7 +408,7 @@ button[plain] {
 }
 
 
-.about {
+.gift {
   position: fixed;
   top: 0;
   left: 0;
@@ -417,7 +417,7 @@ button[plain] {
   background: rgba(0, 0, 0, 0.6);
 }
 
-.about-container {
+.gift-container {
   position: relative;
   margin: 320rpx auto;
   width: 576rpx;
@@ -425,7 +425,7 @@ button[plain] {
   box-sizing: border-box;
 }
 
-.about-bg {
+.gift-bg {
   position: absolute;
   left: 0;
   height: 100%;
@@ -433,7 +433,7 @@ button[plain] {
   z-index: 4;
 }
 
-.about-title {
+.gift-title {
   position: absolute;
   top: -30%;
   left: 50%;

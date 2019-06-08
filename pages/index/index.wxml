@@ -85,7 +85,7 @@
       <image class="contest-title" src="https://shiancha.guduokeji.com/lib/home/contest_title.png" alt=""></image>
       <text class="rules-desc" style="top: 198rpx; left: 181rpx; right: 148rpx; color: rgba(3,0,119,1);">{{ heroTip }}</text>
       <!-- <text class="rules-desc" style="top: 198rpx; left: 181rpx; right: 148rpx; color: rgba(3,0,119,1);">由于你的优异表现，获得一张英雄帖，持此贴可以在6月25-6月26日参加高手云集的专场赛</text> -->
-      <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/contest_get.png" alt="" bindtap="goFeature"></image>
+      <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/rules_go.png" alt="" bindtap="goFeature"></image>
       <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenContest"></image>
     </view>
   </view>
@@ -124,10 +124,10 @@
   </view>
 
      <!-- 获取礼物 -->
-  <view class="about"  wx:if="{{ isReward === 1 }}">
-    <view class="about-container" style='margin-top: 279rpx; height: 776rpx;'>
-      <image class="about-bg" src="https://shiancha.guduokeji.com/lib/award/award_pop_bg.png" alt=""></image>
-      <image class="about-title" src="https://shiancha.guduokeji.com/lib/award/award_success.png" style='top: -19%'></image>
+  <view class="gift"  wx:if="{{ isReward === 1 }}">
+    <view class="gift-container" style='margin-top: 279rpx; height: 776rpx;'>
+      <image class="gift-bg" src="https://shiancha.guduokeji.com/lib/award/award_pop_bg.png" alt=""></image>
+      <image class="gift-title" src="https://shiancha.guduokeji.com/lib/award/award_success.png" style='top: -19%'></image>
       <view class='out_tips3'>恭喜获得专题赛神秘奖品</view>
       <view class='form-item' style='top: 256rpx;'>
         <text>姓名</text><input bindinput="inputName" />
