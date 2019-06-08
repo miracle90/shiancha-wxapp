@@ -97,7 +97,7 @@
           <view class="right-know">小知识：{{ answer.reason }}</view>
           <view style='margin-top: 33rpx;'>
             <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/right_stop.png" bindtap='goIndex' style="margin-right: 12rpx;"></image>          
-            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/regular/right_next.png" bindtap="next"></image>          
+            <image class="right-btn" src="https://shiancha.guduokeji.com/lib/new/next_question.png" bindtap="next"></image>          
           </view>
         </view>
       </view>
