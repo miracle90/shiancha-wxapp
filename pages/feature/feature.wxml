@@ -3,7 +3,7 @@
   <block wx:if="{{ !ing }}">
     <image class="header-bg" src="https://shiancha.guduokeji.com/lib/home/special_bg.png" mode="scaleToFill"></image>
     <image class="regular-title" src="https://shiancha.guduokeji.com/lib/feature/feature.png"></image>
-    <view class="regular-desc">{{ content }}</view>
+     <scroll-view class="regular-desc" scroll-y="{{ true }}">{{ content }}</scroll-view>
     <!-- <view class="regular-desc">在专场赛中，你会获得10个专场体力值来助你完成比赛。</view> -->
     <!-- <view class="regular-desc" style='margin-top: 0;'>比赛一共300道不重复题目，答题时间会被记录，中间退出时间暂停，专场体力值用完或答完300道题即可结束比赛。</view> -->
     <image bindtap="start" class="regular-start" src="https://shiancha.guduokeji.com/lib/regular/start.png"></image>
@@ -26,12 +26,15 @@
       </view>
     </view>
     <!-- 答题结束 -->
-    <view class="about" wx:if="{{ showEnd }}">
+    <view class="about" wx:if="{{ showEnd || showTimeOut }}">
       <view class="about-container" style='margin-top: 198rpx; height: 730rpx;'>
         <image class="about-bg" src="https://shiancha.guduokeji.com/lib/regular/right_bg.png" alt=""></image>
         <image class="about-title" src="https://shiancha.guduokeji.com/lib/feature/tips_top.png" alt=""></image>
         <text class="about-about">专场赛</text>
-        <view class='tips_1'>您的答题已经结束，您可以直接进入<text style="color: #FFFC00FF;">排行榜</text>，查看成绩或进入<text style="color: #FFFC00FF;">常规赛</text>参加活动</view>
+        <view class='tips_1' wx:if="{{ showTimeOut }}">专场赛已结束，您可以直接进入查看成绩或进入常规赛参加活动</view>
+        <view class='tips_1' wx:if="{{ showEnd }}">
+        您的答题已经结束，您可以直接进入<text style="color: #FFFC00FF;">排行榜</text>，查看成绩或进入<text style="color: #FFFC00FF;">常规赛</text>参加活动
+        </view>
         <image class="right-blank" style="top: 513rpx;" src="https://shiancha.guduokeji.com/lib/regular/blank.png"></image>
         <view class="answer-wrap" style="top: 513rpx;">
           <view style='margin-top: 33rpx;'>

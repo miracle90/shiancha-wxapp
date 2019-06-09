@@ -15,6 +15,7 @@ Page({
     showOut: false,
     showTips: false,
     showEnd: false,
+    showTimeOut: false,
     showSuccess: false,
     selectedIndex: '',
     superPower: 10,
@@ -167,11 +168,15 @@ Page({
           // 2 活动已经结束
           // 3 体力耗尽或者答题结束
           // 0 可以开始专题赛
-          if (status === 3 || status === 2) {
+          if (status === 2) {
+            this.setData({
+              showTimeOut: true
+            })
+          } else if (status === 3) {
             this.setData({
               showEnd: true
             })
-          } else if (status === 1) {
+          }else if (status === 1) {
             this.setData({
               showTips: true
             })

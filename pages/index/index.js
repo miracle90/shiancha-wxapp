@@ -308,7 +308,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (ops) {
     wx.request({
       url: shareApi,
       method: 'POST',

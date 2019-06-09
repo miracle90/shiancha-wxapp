@@ -71,9 +71,9 @@
       <image class="rules-title-bg" style="top: 93rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image>
       <text class="rules-title" style="top: 106rpx;">常规赛规则</text>
       <image class="rules-title-bg" style="top: 427rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image>
-      <text class="rules-desc" style="top: 193rpx;">{{ rules }}</text>
+      <scroll-view class="rules-desc" style="top: 193rpx;" scroll-y="{{ true }}">{{ rules }}</scroll-view>
       <text class="rules-title" style="top: 436rpx;">专场赛规则</text>
-      <text class="rules-desc" style="top: 507rpx;">{{ majorRules }}</text>
+      <scroll-view class="rules-desc" style="top: 507rpx;" scroll-y="{{ true }}">{{ majorRules }}</scroll-view>
       <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/rules_go.png" alt="" bindtap="goRegular"></image>
       <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenRules"></image>
     </view>
@@ -93,8 +93,8 @@
   <view class="about" wx:if="{{ showTreasure }}">
     <view class="treasure-container">
       <image class="treasure-bg" src="https://shiancha.guduokeji.com/lib/home/treasure_bg.png" alt=""></image>
-      <image class="about-star" src="https://shiancha.guduokeji.com/lib/home/about_star.png" alt=""></image>
-      <image class="treasure-logo" src="https://shiancha.guduokeji.com/lib/home/treasure_logo.png" alt=""></image>
+      <!-- <image class="about-star" src="https://shiancha.guduokeji.com/lib/home/about_star.png" alt=""></image> -->
+      <image class="treasure-logo" src="https://shiancha.guduokeji.com/lib/home/treasure_logo_new_1.png" alt=""></image>
       <text class="treasure-tip">体力礼包</text>
       <text class="treasure-add">体力  +3</text>
       <image class="rules-line" src="https://shiancha.guduokeji.com/lib/home/treasure_line.png" alt=""></image>

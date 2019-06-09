@@ -15,6 +15,7 @@
 .regular-desc {
   margin-top: 125rpx;
   width: 642rpx;
+  height: 400rpx;
   font-size: 18px;
   font-family: PingFangSC-Regular;
   color: rgba(255,255,255,1);
