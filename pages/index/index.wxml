@@ -70,9 +70,9 @@
       <text class="about-about" style="color: rgba(152,52,255,1);">活动规则</text>
       <image class="rules-title-bg" style="top: 93rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image>
       <text class="rules-title" style="top: 106rpx;">常规赛规则</text>
-      <image class="rules-title-bg" style="top: 407rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image>
+      <image class="rules-title-bg" style="top: 427rpx" src="https://shiancha.guduokeji.com/lib/home/rules_rules.png" alt=""></image>
       <text class="rules-desc" style="top: 193rpx;">{{ rules }}</text>
-      <text class="rules-title" style="top: 418rpx;">专场赛规则</text>
+      <text class="rules-title" style="top: 436rpx;">专场赛规则</text>
       <text class="rules-desc" style="top: 507rpx;">{{ majorRules }}</text>
       <image class="rules-go" src="https://shiancha.guduokeji.com/lib/home/rules_go.png" alt="" bindtap="goRegular"></image>
       <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenRules"></image>

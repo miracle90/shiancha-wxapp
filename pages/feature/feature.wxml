@@ -61,20 +61,16 @@
       <text class='duration'>所用时长：{{ duration }}</text>
     </view>
     <image class="question-header" src="https://shiancha.guduokeji.com/lib/regular/header.png"></image>
-    <image class="question-container" src="https://shiancha.guduokeji.com/lib/regular/container.png"></image>
     <image class="question-logo" src="https://shiancha.guduokeji.com/lib/regular/logo.png"></image>
     <image class="question-blank" src="https://shiancha.guduokeji.com/lib/regular/blank.png"></image>
     <view class="quest-wrap">
+      <image class="question-container" src="https://shiancha.guduokeji.com/lib/regular/container.png"></image>
       <view class="quest-index">- {{ index }} / {{ questionCount }} -</view>
       <view class="quest-desc">{{ question.title }}</view>
-      <view class="quest-item {{ selectedIndex === '1' ? 'active' : ''}}" bindtap="selected" data-index="1">A. {{ question.firstAnswer }}</view>
-      <view class="quest-item {{ selectedIndex === '2' ? 'active' : ''}}" bindtap="selected" data-index="2">B. {{ question.secondAnswer }}</view>
-      <view class="quest-item {{ selectedIndex === '3' ? 'active' : ''}}" bindtap="selected" data-index="3">C. {{ question.thirdAnswer }}</view>
-      <view class="quest-item {{ selectedIndex === '4' ? 'active' : ''}}" bindtap="selected" data-index="4">D. {{ question.fourthAnswer }}</view>
-      <!-- <view class="quest-item">A. {{question.first}}</view>
-      <view class="quest-item">B. {{question.second}}</view>
-      <view class="quest-item">C. {{question.third}}</view>
-      <view class="quest-item active">D. {{question.fourth}}</view> -->
+            <view class="quest-item {{ selectedIndex === '1' ? 'active' : ''}}" bindtap="selected" data-index="1"><text style="margin-right: 10rpx;">A.</text>{{ question.firstAnswer }}</view>
+      <view class="quest-item {{ selectedIndex === '2' ? 'active' : ''}}" bindtap="selected" data-index="2"><text style="margin-right: 10rpx;">B.</text>{{ question.secondAnswer }}</view>
+      <view class="quest-item {{ selectedIndex === '3' ? 'active' : ''}}" bindtap="selected" data-index="3"><text style="margin-right: 10rpx;">C.</text>{{ question.thirdAnswer }}</view>
+      <view class="quest-item {{ selectedIndex === '4' ? 'active' : ''}}" bindtap="selected" data-index="4"><text style="margin-right: 10rpx;">D.</text>{{ question.fourthAnswer }}</view>
     </view>
     <!-- 正确 -->
     <view class="about" wx:if="{{ showRight }}">

@@ -136,7 +136,7 @@
   margin: 137rpx auto;
   padding: 0 48rpx;
   width: 624rpx;
-  height: 791rpx;
+  height: 880rpx;
   color: #fff;
   box-sizing: border-box;
 }
@@ -260,6 +260,7 @@
   font-weight: 400;
   line-height: 45rpx;
   z-index: 5;
+  word-wrap: break-word;
 }
 
 .rules-go {
