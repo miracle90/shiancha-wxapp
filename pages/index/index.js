@@ -28,12 +28,7 @@ Page({
     showAboutNum: 0,
     isReward: 0
   },
-  //事件处理函数
-  // bindViewTap: function() {
-  //   wx.navigateTo({
-  //     url: '../logs/logs'
-  //   })
-  // },
+
   onLoad: function () {
     this.getContent('hero_post')
   },

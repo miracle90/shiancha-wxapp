@@ -250,7 +250,17 @@
   font-family: PingFangSC-Regular;
   z-index: 6;
 }
-
+.post-desc {
+  position: absolute;
+  left: 61rpx;
+  right: 61rpx;
+  font-size: 14px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  line-height: 45rpx;
+  z-index: 5;
+  word-wrap: break-word;
+}
 .rules-desc {
   position: absolute;
   left: 61rpx;
