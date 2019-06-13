@@ -57,7 +57,7 @@
       <view class="about-qrcode">
         <image bindtap="previewQrcode" src="https://shiancha.guduokeji.com/lib/home/about_qrcode.png"></image>
       </view>
-      <text class="about-click">点击二维码，然后长按扫码即可进入食品安全抽检公布结果查询</text>
+      <text class="about-click">点击二维码，然后长按扫码即可进入食品安全抽检公布结果查询系统</text>
       <image class="about-cancel" src="https://shiancha.guduokeji.com/lib/home/about_cancel.png" alt="" bindtap="hiddenAbout"></image>
     </view>
   </view>
